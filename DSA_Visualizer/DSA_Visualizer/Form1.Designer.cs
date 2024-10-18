@@ -387,6 +387,7 @@
             this.button12.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.button12.Size = new System.Drawing.Size(210, 40);
             this.button12.TabIndex = 5;
+            this.button12.Tag = "DSA_Visualizer.xxx";
             this.button12.Text = "       Compare Algorithms\r\n";
             this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button12.UseVisualStyleBackColor = true;
@@ -405,10 +406,10 @@
             this.sortVisualBtn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.sortVisualBtn.Size = new System.Drawing.Size(210, 40);
             this.sortVisualBtn.TabIndex = 4;
+            this.sortVisualBtn.Tag = "DSA_Visualizer.Sorting_Forms.sortingForm";
             this.sortVisualBtn.Text = "       Sorting Visualizer";
             this.sortVisualBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.sortVisualBtn.UseVisualStyleBackColor = true;
-            this.sortVisualBtn.Click += new System.EventHandler(this.sortVisualBtn_Click);
             // 
             // sortBtn_
             // 
