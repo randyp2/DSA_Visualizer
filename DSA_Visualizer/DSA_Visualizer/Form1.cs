@@ -40,22 +40,35 @@ namespace DSA_Visualizer
 
             navPanelBtns = new List<Button>();
 
-            foreach (Panel panel in navPanel.Controls)
-            {
-                foreach (Button button in panel.Controls)
-                {
-                    if (button.Name[button.Name.Length - 1] == '_') navPanelBtns.Add(button);
-                }
-            }
-
+            
             initializeBtnAnimation();
+            initializeBtnsToForms();
         }
 
         // Initialize each button to click event
         private void initializeBtnAnimation()
         {
             // Attach buttons to same event
-            foreach (Button button in navPanelBtns) button.Click += subPanelBtnClick;
+            foreach (Panel panel in navPanel.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    if (button.Name[button.Name.Length - 1] == '_') button.Click += subPanelBtnClick;
+                }
+            }
+        }
+
+        // Initialize each sub button click event to load respective form
+        private void initializeBtnsToForms()
+        {
+            foreach (Panel panel in navPanel.Controls)
+            {
+                foreach (Button button in panel.Controls)
+                {
+                    if (button.Name[button.Name.Length - 1] != '_') button.Click += loadForm_Click;
+                }
+
+            }
         }
 
         /*
@@ -133,9 +146,30 @@ namespace DSA_Visualizer
             menuAnimation.Start(); 
         }
 
-        private void sortVisualBtn_Click(object sender, EventArgs e)
+        // Click event to load form based on tag name property
+        private void loadForm_Click(object sender, EventArgs e)
         {
-            loadForm(new Sorting_Forms.sortingForm());
+            Button clickedBtn = (Button)sender;
+
+            string formName = (string)clickedBtn.Tag;
+
+            if (!string.IsNullOrEmpty(formName))
+            {
+                Type formType = Type.GetType(formName);
+
+                if (formType != null)
+                {
+                    Form formToAdd = (Form)Activator.CreateInstance(formType);
+                    loadForm(formToAdd);
+                }else {
+                    MessageBox.Show(
+                        "Form does not exist check for proper tag name", // Message text
+                        "Warning",  // Title
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                }
+            }
         }
 
 
