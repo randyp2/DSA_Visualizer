@@ -23,8 +23,8 @@ namespace DSA_Visualizer.Sorting_Forms.Sorting_Algorithms
         private float animationSteps; // Dictates smoothness of animation
         private float offsetX;
 
-        private bool isPaused; 
-
+        private bool isPaused;
+        
         
         public SortingAlgorithms(RectangleManger recManager) {
             this.recManager = recManager;
@@ -34,6 +34,7 @@ namespace DSA_Visualizer.Sorting_Forms.Sorting_Algorithms
             this.animationSteps = 1f; // Frames
             this.animationSpeed = 2;
             this.offsetX = 1000f;
+
             this.isPaused = false;
         }
 
@@ -44,6 +45,8 @@ namespace DSA_Visualizer.Sorting_Forms.Sorting_Algorithms
             get { return this.isPaused; }
             set { this.isPaused = value; }
         }
+
+       
 
         /*
          * @brief Asynchronous pausing function
@@ -88,7 +91,7 @@ namespace DSA_Visualizer.Sorting_Forms.Sorting_Algorithms
             recManager.Rectangles[i].isSwapping = true;
             recManager.Rectangles[j].isSwapping = true;
 
-            await Task.Delay((animationSpeed/2)); // Perform slight delay when hihglighting rectangles
+            //await Task.Delay((animationSpeed/2)); // Perform slight delay when hihglighting rectangles
 
             //Store original rectangles
             RectangleF rectI = recManager.Rectangles[i].rect;
@@ -155,12 +158,13 @@ namespace DSA_Visualizer.Sorting_Forms.Sorting_Algorithms
 
                 recManager.Panel.Invalidate(); // Redraw panel
                 await Task.Delay(animationSpeed);
-                
+               
+
             }
             if (this.IsPaused) await pauseSort(); // Pause sort if paused
 
             // Unhighlight the swapped rectangles
-            Console.WriteLine("Is idx i sorted: " + (recManager.Rectangles[i].isSorted));
+           
             if (!(recManager.Rectangles[i].isSorted)) recManager.deselectRec(i);
             recManager.deselectRec(j);
            
@@ -175,11 +179,13 @@ namespace DSA_Visualizer.Sorting_Forms.Sorting_Algorithms
         }
 
         public async Task swap(int i, int j) {
+            
             await animateSwap(i, j);
-
+       
             ColoredRectangle temp = recManager.Rectangles[i];
             recManager.Rectangles[i] = recManager.Rectangles[j];
             recManager.Rectangles[j] = temp;
+            recManager.Panel.Invalidate();
 
 
         }
@@ -193,9 +199,6 @@ namespace DSA_Visualizer.Sorting_Forms.Sorting_Algorithms
         }
 
 
-        //public void determineOffsetX(int distance) {
-        //    if(distance < 100)
-        //}
 
 
     }

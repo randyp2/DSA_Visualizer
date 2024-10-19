@@ -43,6 +43,8 @@ namespace DSA_Visualizer.Sorting_Forms
             get { return panel; }
         }
 
+       
+
         /*
          * @brief Initialize rectangles list
          * 

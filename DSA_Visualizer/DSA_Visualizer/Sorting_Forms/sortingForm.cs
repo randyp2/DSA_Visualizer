@@ -27,6 +27,8 @@ namespace DSA_Visualizer.Sorting_Forms
         }
 
 
+        
+
 
         /*
          * @brief Initializse recManager class
@@ -46,7 +48,6 @@ namespace DSA_Visualizer.Sorting_Forms
                 case 3: recMnger.NumRectangles = 500; break;
                 case 4: recMnger.NumRectangles = 1000; break;
             }
-
 
             recMnger.populateRectangles();
         }
@@ -68,8 +69,6 @@ namespace DSA_Visualizer.Sorting_Forms
         private void displayPanel_Paint(object sender, PaintEventArgs e)
         {
             recMnger.drawRectangles(e.Graphics);
-
-           
         }
         
        
@@ -181,6 +180,7 @@ namespace DSA_Visualizer.Sorting_Forms
 
         private void speedTrackBar_Scroll(object sender, EventArgs e)
         {
+            
             algorithms?.setAnimationSpeed(speedTrackBar.Value);
             algorithms?.setOffsetX(1000 / speedTrackBar.Value);
         }

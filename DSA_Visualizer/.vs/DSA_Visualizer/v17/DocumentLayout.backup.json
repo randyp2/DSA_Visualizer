@@ -3,24 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|c:\\users\\rpaha\\onedrive\\desktop\\github\\dsa project\\dsa_visualizer\\dsa_visualizer\\dsa_visualizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|c:\\users\\rpaha\\onedrive\\desktop\\github\\dsa project\\dsa_visualizer\\dsa_visualizer\\dsa_visualizer\\sorting_forms\\sorting_algorithms\\quicksort.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\sorting_forms\\sorting_algorithms\\quicksort.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|c:\\users\\rpaha\\onedrive\\desktop\\github\\dsa project\\dsa_visualizer\\dsa_visualizer\\dsa_visualizer\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|c:\\users\\rpaha\\onedrive\\desktop\\github\\dsa project\\dsa_visualizer\\dsa_visualizer\\dsa_visualizer\\sorting_forms\\sorting_algorithms\\sortingalgorithms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\sorting_forms\\sorting_algorithms\\sortingalgorithms.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|c:\\users\\rpaha\\onedrive\\desktop\\github\\dsa project\\dsa_visualizer\\dsa_visualizer\\dsa_visualizer\\sorting_forms\\rectanglemanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\sorting_forms\\rectanglemanger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\dsa_visualizer\\sorting_forms\\sortingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\sorting_forms\\sortingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\dsa_visualizer\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|c:\\users\\rpaha\\onedrive\\desktop\\github\\dsa project\\dsa_visualizer\\dsa_visualizer\\dsa_visualizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|c:\\users\\rpaha\\onedrive\\desktop\\github\\dsa project\\dsa_visualizer\\dsa_visualizer\\dsa_visualizer\\sorting_forms\\sortingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\dsa_visualizer\\sorting_forms\\sortingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\sorting_forms\\sortingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|c:\\users\\rpaha\\onedrive\\desktop\\github\\dsa project\\dsa_visualizer\\dsa_visualizer\\dsa_visualizer\\sorting_forms\\sortingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\sorting_forms\\sortingform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\dsa_visualizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|c:\\users\\rpaha\\onedrive\\desktop\\github\\dsa project\\dsa_visualizer\\dsa_visualizer\\dsa_visualizer\\sorting_forms\\coloredrectangle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\sorting_forms\\coloredrectangle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|c:\\users\\rpaha\\onedrive\\desktop\\github\\dsa project\\dsa_visualizer\\dsa_visualizer\\dsa_visualizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,11 +46,63 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ColoredRectangle.cs",
+              "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\ColoredRectangle.cs",
+              "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\ColoredRectangle.cs",
+              "ToolTip": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\ColoredRectangle.cs",
+              "RelativeToolTip": "DSA_Visualizer\\Sorting_Forms\\ColoredRectangle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T08:58:50.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RectangleManger.cs",
+              "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\RectangleManger.cs",
+              "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\RectangleManger.cs",
+              "ToolTip": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\RectangleManger.cs",
+              "RelativeToolTip": "DSA_Visualizer\\Sorting_Forms\\RectangleManger.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAC0AAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T08:51:43.819Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "SortingAlgorithms.cs",
+              "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\Sorting_Algorithms\\SortingAlgorithms.cs",
+              "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\Sorting_Algorithms\\SortingAlgorithms.cs",
+              "ToolTip": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\Sorting_Algorithms\\SortingAlgorithms.cs",
+              "RelativeToolTip": "DSA_Visualizer\\Sorting_Forms\\Sorting_Algorithms\\SortingAlgorithms.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAABoAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T08:43:24.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "QuickSort.cs",
+              "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\Sorting_Algorithms\\QuickSort.cs",
+              "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\Sorting_Algorithms\\QuickSort.cs",
+              "ToolTip": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\Sorting_Algorithms\\QuickSort.cs",
+              "RelativeToolTip": "DSA_Visualizer\\Sorting_Forms\\Sorting_Algorithms\\QuickSort.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAWwEYAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-19T08:43:23.348Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Form1.Designer.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Form1.Designer.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Form1.Designer.cs",
@@ -47,20 +115,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "sortingForm.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\sortingForm.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\sortingForm.cs",
               "ToolTip": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\sortingForm.cs",
               "RelativeToolTip": "DSA_Visualizer\\Sorting_Forms\\sortingForm.cs",
-              "ViewState": "AgIAAEYAAAAAAAAAAAAWwFsAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAKEAAAAAAAAAAAAIwLgAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-18T07:18:31.863Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "sortingForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\sortingForm.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\sortingForm.cs",
@@ -72,20 +140,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Form1.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Form1.cs",
               "ToolTip": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Form1.cs",
               "RelativeToolTip": "DSA_Visualizer\\Form1.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAgwKkAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAH8AAAAAAAAAAAAuwKkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-18T07:14:04.045Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Form1.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Form1.cs",
