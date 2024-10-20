@@ -26,8 +26,8 @@ C:\Users\rpaha\OneDrive\Desktop\GitHub\DSA Project\DSA_Visualizer\DSA_Visualizer
 C:\Users\rpaha\OneDrive\Desktop\GitHub\DSA Project\DSA_Visualizer\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.csproj.AssemblyReference.cache
 C:\Users\rpaha\OneDrive\Desktop\GitHub\DSA Project\DSA_Visualizer\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.homePage.resources
 C:\Users\rpaha\OneDrive\Desktop\GitHub\DSA Project\DSA_Visualizer\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.Properties.Resources.resources
-C:\Users\rpaha\OneDrive\Desktop\GitHub\DSA Project\DSA_Visualizer\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.Sorting_Forms.sortingForm.resources
 C:\Users\rpaha\OneDrive\Desktop\GitHub\DSA Project\DSA_Visualizer\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.csproj.GenerateResource.cache
 C:\Users\rpaha\OneDrive\Desktop\GitHub\DSA Project\DSA_Visualizer\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.csproj.CoreCompileInputs.cache
 C:\Users\rpaha\OneDrive\Desktop\GitHub\DSA Project\DSA_Visualizer\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.exe
 C:\Users\rpaha\OneDrive\Desktop\GitHub\DSA Project\DSA_Visualizer\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.pdb
+C:\Users\rpaha\OneDrive\Desktop\GitHub\DSA Project\DSA_Visualizer\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.Sorting_Forms.SortingVisualizer.sortingVisualizerForm.resources
