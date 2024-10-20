@@ -133,7 +133,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
          *      i) int : index of rectangle to select
          *      ii) Brush : Color to highlight/fill rectangle
          */
-        public void selectRec(int idx, Brush fillBrush) {
+        public void selectRec(int idx, Brush fillBrush) {          
             rectangles[idx].Color = fillBrush;
             this.panel.Invalidate();
         }

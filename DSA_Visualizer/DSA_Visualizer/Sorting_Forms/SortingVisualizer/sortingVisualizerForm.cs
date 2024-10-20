@@ -23,6 +23,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             SetDoubleBuffered(displayPanel); // Remove flickering of display panel
             recMnger = new RectangleManger(displayPanel);
 
+            this.displayPanel.BackColor = Color.FromArgb(225, 0, 0, 0); // Transparent background
             this.resetBtn.Hide();
         }
 
@@ -164,9 +165,16 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             switch (algorithm) {
                 case "Quick Sort":
                     algorithms = new QuickSort(this.recMnger);
+                    initializeAlgorithmOutputs();
+                    
                     break;
             }
             algorithms?.setAnimationSpeed(speedTrackBar.Value);
+        }
+
+        public void initializeAlgorithmOutputs() {
+            algorithms.CompareOutput = cmprOutput;
+            algorithms.SwapOutput = swapsOutput;
         }
 
         // Update number of rectangles
@@ -182,7 +190,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         {
             
             algorithms?.setAnimationSpeed(speedTrackBar.Value);
-            algorithms?.setOffsetX(1000 / speedTrackBar.Value);
+            if (sizeBar.Value != 0) algorithms?.setOffsetX(1000 / speedTrackBar.Value);
         }
 
         /* ==================================================================== */
@@ -215,6 +223,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
                 return cp;
             }
         }
+
+        
         #endregion
 
         /*==================================================================== */

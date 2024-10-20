@@ -33,6 +33,10 @@
             this.sortBtn = new System.Windows.Forms.Button();
             this.algComboBox = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmprOutput = new System.Windows.Forms.Label();
+            this.swapsOutput = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.speedTrackBar = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
@@ -101,6 +105,10 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(15)))), ((int)(((byte)(12)))));
+            this.panel1.Controls.Add(this.cmprOutput);
+            this.panel1.Controls.Add(this.swapsOutput);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.speedTrackBar);
             this.panel1.Controls.Add(this.label2);
@@ -113,6 +121,52 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1157, 145);
             this.panel1.TabIndex = 4;
+            // 
+            // cmprOutput
+            // 
+            this.cmprOutput.AutoSize = true;
+            this.cmprOutput.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmprOutput.ForeColor = System.Drawing.Color.White;
+            this.cmprOutput.Location = new System.Drawing.Point(1046, 77);
+            this.cmprOutput.Name = "cmprOutput";
+            this.cmprOutput.Size = new System.Drawing.Size(17, 19);
+            this.cmprOutput.TabIndex = 11;
+            this.cmprOutput.Text = "0";
+            // 
+            // swapsOutput
+            // 
+            this.swapsOutput.AutoSize = true;
+            this.swapsOutput.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.swapsOutput.ForeColor = System.Drawing.Color.White;
+            this.swapsOutput.Location = new System.Drawing.Point(995, 29);
+            this.swapsOutput.Name = "swapsOutput";
+            this.swapsOutput.Size = new System.Drawing.Size(17, 19);
+            this.swapsOutput.TabIndex = 10;
+            this.swapsOutput.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(902, 75);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(138, 19);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Total Comparisons:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(902, 27);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(93, 19);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Total Swaps:";
             // 
             // label3
             // 
@@ -179,7 +233,7 @@
             this.resetBtn.UseVisualStyleBackColor = false;
             this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
-            // sortingForm
+            // sortingVisualizerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -190,7 +244,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.displayPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "sortingForm";
+            this.Name = "sortingVisualizerForm";
             this.Text = "sortingForm";
             ((System.ComponentModel.ISupportInitialize)(this.sizeBar)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -212,5 +266,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TrackBar speedTrackBar;
         private System.Windows.Forms.Button resetBtn;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label cmprOutput;
+        private System.Windows.Forms.Label swapsOutput;
+        private System.Windows.Forms.Label label5;
     }
 }
