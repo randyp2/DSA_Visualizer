@@ -49,34 +49,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="HomePageForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="HomePageForm.Designer.cs">
+      <DependentUpon>HomePageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Sorting_Forms\ColoredRectangle.cs" />
-    <Compile Include="Sorting_Forms\RectangleManger.cs" />
-    <Compile Include="Sorting_Forms\sortingForm.cs">
+    <Compile Include="Sorting_Forms\SortingVisualizer\ColoredRectangle.cs" />
+    <Compile Include="Sorting_Forms\SortingVisualizer\RectangleManger.cs" />
+    <Compile Include="Sorting_Forms\SortingVisualizer\sortingVisualizerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sorting_Forms\sortingForm.Designer.cs">
-      <DependentUpon>sortingForm.cs</DependentUpon>
+    <Compile Include="Sorting_Forms\SortingVisualizer\sortingVisualizerForm.Designer.cs">
+      <DependentUpon>sortingVisualizerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Sorting_Forms\Sorting_Algorithms\QuickSort.cs" />
-    <Compile Include="Sorting_Forms\Sorting_Algorithms\SortingAlgorithms.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Sorting_Forms\SortingVisualizer\Sorting_Algorithms\QuickSort.cs" />
+    <Compile Include="Sorting_Forms\SortingVisualizer\Sorting_Algorithms\SortingAlgorithms.cs" />
+    <EmbeddedResource Include="HomePageForm.resx">
+      <DependentUpon>HomePageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sorting_Forms\sortingForm.resx">
-      <DependentUpon>sortingForm.cs</DependentUpon>
+    <EmbeddedResource Include="Sorting_Forms\SortingVisualizer\sortingVisualizerForm.resx">
+      <DependentUpon>sortingVisualizerForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -115,8 +115,7 @@
     <None Include="Resources\list_icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Basics_Controls\" />
-    <Folder Include="Sorting_Forms\SortingImages\" />
+    <Folder Include="Basics_Forms\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
