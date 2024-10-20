@@ -9,33 +9,63 @@ using System.Drawing;
 
 namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
 {
-    
+
     public abstract class SortingAlgorithms
     {
-        
+
 
         protected RectangleManger recManager;
 
         /* Pass this token to whichever functions need to be canclled*/
         protected CancellationTokenSource cancellationTokenSource; // Determiens if task should be cancelled
+        private Label compareOutput;
+        private Label swapOutput;
 
-        protected int animationSpeed; 
+
+        private int totalComparisons;
+        private int totalSwaps;
+
+        protected int animationSpeed;
         private float animationSteps; // Dictates smoothness of animation
         private float offsetX;
 
         private bool isPaused;
-        
-        
+
+
         public SortingAlgorithms(RectangleManger recManager) {
             this.recManager = recManager;
             this.cancellationTokenSource = new CancellationTokenSource();
-      
+
+            this.totalComparisons = 0;
+            this.totalSwaps = 0;
 
             this.animationSteps = 1f; // Frames
             this.animationSpeed = 2;
-            this.offsetX = 1000f;
+
+            this.offsetX = recManager.NumRectangles == 10 ? 10f : 1000f;
+
+            //this.offsetX = 1000f;
 
             this.isPaused = false;
+        }
+
+        public Label CompareOutput { 
+            set { this.compareOutput = value; }
+        }
+
+        public Label SwapOutput {
+            set { this.swapOutput = value;  }
+        }
+
+
+        public int TotalComparisons { 
+            get { return totalComparisons; }
+            set { totalComparisons = value; }
+        }
+
+        public int TotalSwaps { 
+            get{ return totalSwaps; }
+            set { totalSwaps = value; }
         }
 
         public void setAnimationSpeed(int val) { this.animationSpeed = val; }
@@ -191,13 +221,24 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
         }
 
         public async Task highlightAllGreen() {
+            Color lightGreen = ColorTranslator.FromHtml("#3ade60");
+
             for (int i = 0; i < recManager.NumRectangles; i++) {
-                recManager.selectRec(i, Brushes.Green);
+                recManager.selectRec(i, new SolidBrush(lightGreen));
                 await Task.Delay(5);
             }
 
         }
 
+        public void updateCompare() {
+            totalComparisons++;
+            compareOutput.Text = totalComparisons.ToString();
+        }
+
+        public void updateSwap() {
+            TotalSwaps++;
+            swapOutput.Text = totalSwaps.ToString();
+        }
 
 
 
