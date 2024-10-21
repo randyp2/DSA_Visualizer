@@ -1,15 +1,9 @@
-**********************************************************
----------------------DSA VISUALIZER---------------------
-#Description: Develop data structures and algorithms visualizers to help
-concepetualize topics. Implemented through C# and Winfrom user interface. 
+# DSA VISUALIZER
+### Description
 
-Current Group Members:
-*Randy* -
-*Ethan* -
-*Thomas* -
+A visualizer for data structures and algorithms to help conceptualize topics. Implemented through C# and WinForms user interface.
 
-
-
-
-
-**********************************************************
+### Current Group Members:
+* Randy
+* Ethan
+* Thomas
