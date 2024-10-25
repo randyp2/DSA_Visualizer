@@ -40,7 +40,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             this.totalSwaps = 0;
 
             this.animationSteps = 1f; // Frames
-            this.animationSpeed = 2;
+            this.animationSpeed = 300;
 
             this.offsetX = recManager.NumRectangles == 10 ? 10f : 1000f;
 
@@ -49,6 +49,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             this.isPaused = false;
         }
 
+        /* ====================== GETTERS & SETTERS ====================== */
         public Label CompareOutput { 
             set { this.compareOutput = value; }
         }
@@ -68,40 +69,41 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             set { totalSwaps = value; }
         }
 
-        public void setAnimationSpeed(int val) { this.animationSpeed = val; }
-        public void setOffsetX(float val) { this.offsetX = val; }
-
-        public bool IsPaused { 
+        public bool IsPaused
+        {
             get { return this.isPaused; }
             set { this.isPaused = value; }
         }
 
-       
+        public void setAnimationSpeed(int val) { this.animationSpeed = val; }
+        public void setOffsetX(float val) { this.offsetX = val; }
 
-        /*
-         * @brief Asynchronous pausing function
-         * 
-         * @details Delays program every 100ms,
-         * then checks isPaused boolean flag
-         * 
-         */
+        public abstract Task sort(); // Abstract method to impelment
+
+
+        /* ====================== PAUSE & TERMINATE SORTS ====================== */
+
         public async Task pauseSort() {
-            while (isPaused) await Task.Delay(100);
+            while (isPaused) await Task.Delay(100); 
         }
 
         public void terminateSort() { 
             cancellationTokenSource.Cancel(); // Tells token to cancel any tasks associated with it
         }
 
-        public abstract Task sort(); // Abstract method to impelment
 
-        /*
-         * IMPORTANT KEYWORDS:
-         *      Async: Allows use of await keyword, to allow delayed animations
-         *      Task: Allows function to run asynchronously to Main UI Thread,
-         *      allowing users to fidget with the other controls as this function runs in the 
-         *      background.
-         */
+
+        /* ====================== SWAPPING ====================== */
+        public async Task swap(int i, int j)
+        {
+
+            await animateSwap(i, j);
+
+            ColoredRectangle temp = recManager.Rectangles[i];
+            recManager.Rectangles[i] = recManager.Rectangles[j];
+            recManager.Rectangles[j] = temp;
+            recManager.Panel.Invalidate();
+        }
 
         /*
          * @brief Swap animation function
@@ -110,8 +112,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
          * Rectangles gradually shift horizontally to their desired target positions
          * 
          * @param 
-         *      i) int: index of first rectangle
-         *      ii) int: index of second rectangle
+         *      1) int: index of first rectangle
+         *      2) int: index of second rectangle
          */
         public async Task animateSwap(int i, int j) {
 
@@ -121,16 +123,13 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             recManager.Rectangles[i].isSwapping = true;
             recManager.Rectangles[j].isSwapping = true;
 
-            //await Task.Delay((animationSpeed/2)); // Perform slight delay when hihglighting rectangles
-
             //Store original rectangles
             RectangleF rectI = recManager.Rectangles[i].rect;
             RectangleF rectJ = recManager.Rectangles[j].rect;
 
             // Claculate distance between two rectangles
             float distance = Math.Abs(rectJ.X - rectI.X);
-            //float offsetX = distance / animationSteps; // Offset to incremet or decremt x positions
-            //float offsetX = 200f;
+
             while (true) {
                 if (cancellationTokenSource.IsCancellationRequested)
                 {
@@ -194,7 +193,6 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             if (this.IsPaused) await pauseSort(); // Pause sort if paused
 
             // Unhighlight the swapped rectangles
-           
             if (!(recManager.Rectangles[i].isSorted)) recManager.deselectRec(i);
             recManager.deselectRec(j);
            
@@ -204,21 +202,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             recManager.Rectangles[j].isSwapping = false;
 
             await Task.Delay((animationSpeed/2));
-
-          
         }
 
-        public async Task swap(int i, int j) {
-            
-            await animateSwap(i, j);
-       
-            ColoredRectangle temp = recManager.Rectangles[i];
-            recManager.Rectangles[i] = recManager.Rectangles[j];
-            recManager.Rectangles[j] = temp;
-            recManager.Panel.Invalidate();
-
-
-        }
 
         public async Task highlightAllGreen() {
             Color lightGreen = ColorTranslator.FromHtml("#3ade60");
@@ -227,20 +212,18 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
                 recManager.selectRec(i, new SolidBrush(lightGreen));
                 await Task.Delay(5);
             }
-
         }
 
+        /* ====================== UPDATE OUTPUTS ====================== */
         public void updateCompare() {
             totalComparisons++;
             compareOutput.Text = totalComparisons.ToString();
         }
 
         public void updateSwap() {
-            TotalSwaps++;
+            totalSwaps++;
             swapOutput.Text = totalSwaps.ToString();
         }
-
-
 
     }
 }

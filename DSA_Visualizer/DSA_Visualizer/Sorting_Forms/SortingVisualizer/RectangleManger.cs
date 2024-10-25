@@ -68,6 +68,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             }
         }
 
+        // Initialize the rectangles list with their original values (before being swapped)
         public void resetRectangles() {
             for(int i = 0; i < numRectangles; i++)
             {
