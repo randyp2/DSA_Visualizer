@@ -27,10 +27,36 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             this.resetBtn.Hide();
         }
 
+        /* ====================== RESET FUNCTIONS ====================== */
 
-        
+        // Cancel any animation for swapping
+        // Redisplay the current amount of rectangles selected
+        public void resetDisplayPanel()
+        {
+            recMnger.resetRectangles();
+            displayPanel.Invalidate();
 
+            resetBtn.Hide(); // Hide reset btn
+            sortBtn.Text = "Sort";
+        }
 
+        // Reset total compares and swaps
+        public void resetLabelOutputs()
+        {
+            this.cmprOutput.Text = "0";
+            this.swapsOutput.Text = "0";
+        }
+
+        // Stop any animations
+        // Reset display panel
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            algorithms.terminateSort();
+            resetDisplayPanel();
+        }
+
+        /* ====================== INITIALIZATION FUNCTIONS ====================== */
+       
         /*
          * @brief Initializse recManager class
          * 
@@ -53,27 +79,54 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             recMnger.populateRectangles();
         }
 
-        // Cancel any animation for swapping
-        // Redisplay the current amount of rectangles selected
-        public void resetDisplayPanel() {
-            recMnger.resetRectangles();
-            displayPanel.Invalidate();
+        /*
+         * @brief Initialize SortingAlgorithm class
+         * 
+         * @details Initialize SortingAlgorithm to value in
+         * combobox
+         */
+        private void initializeAlgorithm()
+        {
+            string algorithm = algComboBox.Text;
 
-            resetBtn.Hide(); // Hide reset btn
-            sortBtn.Text = "Sort";
+            // Error check
+            if (algorithm == "")
+            {
+                MessageBox.Show(
+                    "Please choose sorting algorithm",
+                    "Warning",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            // Determine algorithm
+            switch (algorithm)
+            {
+                case "Quick Sort":
+                    algorithms = new QuickSort(this.recMnger);
+                    initializeAlgorithmOutputs();
+
+                    break;
+            }
+
+            int reversedVal = 300 - speedTrackBar.Value + 2;
+            algorithms?.setAnimationSpeed(reversedVal);
         }
 
-        
+        public void initializeAlgorithmOutputs()
+        {
+            algorithms.CompareOutput = cmprOutput;
+            algorithms.SwapOutput = swapsOutput;
+        }
 
+        /* ====================== FORM EVENTS ====================== */
 
         // Paint event to trigger rectangle drawing
-        private void displayPanel_Paint(object sender, PaintEventArgs e)
-        {
-            recMnger.drawRectangles(e.Graphics);
-        }
+        private void displayPanel_Paint(object sender, PaintEventArgs e) { recMnger.drawRectangles(e.Graphics);}
         
-       
-
         /*
          * @brief Sort Button On Click Event
          * 
@@ -82,7 +135,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
          */
         private void sortBtn_Click(object sender, EventArgs e)
         {
-            
+            // Validate inputs
             if (recMnger.NumRectangles == 0) {
                 MessageBox.Show(
                     "Please choose input size first", // Message text
@@ -94,15 +147,9 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
                 return;
             }
 
-           
-
-
-
-
             // Handle sort, pause, and unpause functions
             if (sortBtn.Text == "Sort")
             {
-                Console.WriteLine("Sort btn clicked!");
                 initializeAlgorithm();
                 algorithms?.sort(); // If class is not null
 
@@ -114,68 +161,18 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             }
             else if (sortBtn.Text == "Pause")
             {
-                Console.WriteLine("Pause btn clicked!");
                 // Pause animation
                 algorithms.IsPaused = true;
                 sortBtn.Text = "Resume";
             }
             else if (sortBtn.Text == "Resume") {
-                Console.WriteLine("Resume btn clicked!");
                 // Unpause animation
                 algorithms.IsPaused = false;
                 sortBtn.Text = "Pause";
             }
-        
-
-            // Display paused button
 
         }
 
-        // Call reset display panel
-        // Hide button
-
-        private void resetBtn_Click(object sender, EventArgs e)
-        {
-            algorithms.terminateSort();
-            resetDisplayPanel();
-        }
-
-
-        /*
-         * @brief Initialize SortingAlgorithm class
-         * 
-         * @details Initialize SortingAlgorithm to value in
-         * combobox
-         */
-        private void initializeAlgorithm() {
-            string algorithm = algComboBox.Text;
-
-            // Error check
-            if (algorithm == "") {
-                MessageBox.Show(
-                    "Please choose sorting algorithm", 
-                    "Warning",  
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                return;
-            } 
-
-            switch (algorithm) {
-                case "Quick Sort":
-                    algorithms = new QuickSort(this.recMnger);
-                    initializeAlgorithmOutputs();
-                    
-                    break;
-            }
-            algorithms?.setAnimationSpeed(speedTrackBar.Value);
-        }
-
-        public void initializeAlgorithmOutputs() {
-            algorithms.CompareOutput = cmprOutput;
-            algorithms.SwapOutput = swapsOutput;
-        }
 
         // Update number of rectangles
         private void sizeBar_Scroll(object sender, EventArgs e)
@@ -183,15 +180,19 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             initializeRecMnger(sizeBar.Value);
             sortBtn.Text = "Sort";
             displayPanel.Invalidate();
+            resetLabelOutputs();
 
         }
 
         private void speedTrackBar_Scroll(object sender, EventArgs e)
         {
-            
-            algorithms?.setAnimationSpeed(speedTrackBar.Value);
-            if (sizeBar.Value != 0) algorithms?.setOffsetX(1000 / speedTrackBar.Value);
+            int reversedVal = 300 - speedTrackBar.Value + 2;
+            algorithms?.setAnimationSpeed(reversedVal);
+            if (sizeBar.Value != 0) algorithms?.setOffsetX(1000 / reversedVal);
         }
+
+
+
 
         /* ==================================================================== */
         /* ------------ REMOVE WHITE FLICKERING OF PANEL ------------
