@@ -68,7 +68,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
 
         public async Task<int> partition(List<ColoredRectangle> list, int l, int r)
         {
-            if (this.IsPaused) await pauseSort(); // Pause partition if paused
+            
             
             float pivot = list[l].rect.Height;
             recManager.selectRec(l, Brushes.Green);
@@ -130,11 +130,6 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             updateSwap();
             await swap(l, rightPtr);
             
-
-
-
-
-
             return rightPtr;
         }
 
