@@ -47,14 +47,6 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             this.swapsOutput.Text = "0";
         }
 
-        // Stop any animations
-        // Reset display panel
-        private void resetBtn_Click(object sender, EventArgs e)
-        {
-            algorithms.terminateSort();
-            resetDisplayPanel();
-        }
-
         /* ====================== INITIALIZATION FUNCTIONS ====================== */
        
         /*
@@ -89,19 +81,6 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         {
             string algorithm = algComboBox.Text;
 
-            // Error check
-            if (algorithm == "")
-            {
-                MessageBox.Show(
-                    "Please choose sorting algorithm",
-                    "Warning",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning
-                );
-
-                return;
-            }
-
             // Determine algorithm
             switch (algorithm)
             {
@@ -112,8 +91,17 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
                     break;
             }
 
-            int reversedVal = 300 - speedTrackBar.Value + 2;
+            int reversedVal = speedTrackBar.Maximum - speedTrackBar.Value + speedTrackBar.Minimum;
             algorithms?.setAnimationSpeed(reversedVal);
+            initializeAlgorithmSpeed();
+        }
+
+        private void initializeAlgorithmSpeed() {
+            int reversedVal = speedTrackBar.Maximum - speedTrackBar.Value + speedTrackBar.Minimum;
+            algorithms?.setAnimationSpeed(reversedVal);
+
+            if (speedTrackBar.Value == speedTrackBar.Maximum) reversedVal = 1;
+            if (sizeBar.Value != 0) algorithms?.setOffsetX(1000 / reversedVal);
         }
 
         public void initializeAlgorithmOutputs()
@@ -122,7 +110,28 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             algorithms.SwapOutput = swapsOutput;
         }
 
+        public bool validAlgorithm() {
+            // Error check
+            if (algComboBox.Text == "")
+            {
+                MessageBox.Show(
+                    "Please choose sorting algorithm",
+                    "Warning",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return false;
+            }
+
+            return true;
+        }
+
         /* ====================== FORM EVENTS ====================== */
+        private void sortingVisualizerForm_Load(object sender, EventArgs e)
+        {
+
+        }
 
         // Paint event to trigger rectangle drawing
         private void displayPanel_Paint(object sender, PaintEventArgs e) { recMnger.drawRectangles(e.Graphics);}
@@ -150,6 +159,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             // Handle sort, pause, and unpause functions
             if (sortBtn.Text == "Sort")
             {
+                if (!validAlgorithm()) return;
+
                 initializeAlgorithm();
                 algorithms?.sort(); // If class is not null
 
@@ -173,6 +184,14 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 
         }
 
+        // Stop any animations
+        // Reset display panel
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            algorithms.terminateSort();
+            resetDisplayPanel();
+            initializeAlgorithm(); // Create new instance of algorithm
+        }
 
         // Update number of rectangles
         private void sizeBar_Scroll(object sender, EventArgs e)
@@ -186,9 +205,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 
         private void speedTrackBar_Scroll(object sender, EventArgs e)
         {
-            int reversedVal = 300 - speedTrackBar.Value + 2;
-            algorithms?.setAnimationSpeed(reversedVal);
-            if (sizeBar.Value != 0) algorithms?.setOffsetX(1000 / reversedVal);
+            initializeAlgorithmSpeed();
         }
 
 
@@ -225,7 +242,6 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             }
         }
 
-        
         #endregion
 
         /*==================================================================== */

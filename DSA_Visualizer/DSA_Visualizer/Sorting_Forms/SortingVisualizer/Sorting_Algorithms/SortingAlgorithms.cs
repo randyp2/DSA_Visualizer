@@ -42,9 +42,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             this.animationSteps = 1f; // Frames
             this.animationSpeed = 300;
 
-            this.offsetX = recManager.NumRectangles == 10 ? 10f : 1000f;
-
-            //this.offsetX = 1000f;
+            this.offsetX = 10f;
 
             this.isPaused = false;
         }
@@ -91,8 +89,6 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             cancellationTokenSource.Cancel(); // Tells token to cancel any tasks associated with it
         }
 
-
-
         /* ====================== SWAPPING ====================== */
         public async Task swap(int i, int j)
         {
@@ -116,7 +112,6 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
          *      2) int: index of second rectangle
          */
         public async Task animateSwap(int i, int j) {
-
             if (this.IsPaused) await pauseSort(); // Pause animation if paused
 
             // Update swapping bool
@@ -209,8 +204,17 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             Color lightGreen = ColorTranslator.FromHtml("#3ade60");
 
             for (int i = 0; i < recManager.NumRectangles; i++) {
+                if (cancellationTokenSource.IsCancellationRequested) return;
                 recManager.selectRec(i, new SolidBrush(lightGreen));
-                await Task.Delay(5);
+
+                if (recManager.NumRectangles >= 500)
+                {
+                    await Task.Delay(1);
+                }
+                else
+                {
+                    await Task.Delay(5);
+                }
             }
         }
 

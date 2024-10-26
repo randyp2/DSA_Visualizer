@@ -20,7 +20,7 @@ namespace DSA_Visualizer
             Application.SetCompatibleTextRenderingDefault(false);
 
             Application.Run(new homePage());
-            //Application.Run(new Test());
+            
         }
     }
 }

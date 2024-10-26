@@ -52,18 +52,15 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
                 await qs(list, pivot + 1, high);
             }
             else {
-                
-                if (low > 0)
+                if (low > 0 && low < recManager.NumRectangles)
                 {
-                    
                     recManager.selectRec(low, Brushes.Green);
                 }
                 else if (high < recManager.NumRectangles && high > 0)
                 {
-                   
                     recManager.selectRec(high, Brushes.Green);
                 }
-                else { 
+                else {
                     recManager.selectRec(0, Brushes.Green);
                 }
             }
@@ -72,24 +69,20 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
         public async Task<int> partition(List<ColoredRectangle> list, int l, int r)
         {
             if (this.IsPaused) await pauseSort(); // Pause partition if paused
-
             
             float pivot = list[l].rect.Height;
             recManager.selectRec(l, Brushes.Green);
-            //Console.WriteLine("Pivot: " + pivot);
+            
             int leftPtr = l + 1;
             int rightPtr = r;
-
 
             recManager.selectRec(leftPtr, Brushes.Red);
             recManager.selectRec(rightPtr, Brushes.Blue);
             if (recManager.NumRectangles < 250 || animationSpeed != 2)  await Task.Delay(animationSpeed);
 
 
-
             while (leftPtr <= rightPtr)
             {
-                
                 cancellationTokenSource.Token.ThrowIfCancellationRequested(); // Cancel function 
                 if (this.IsPaused) await pauseSort(); // Pause sort if paused
 
