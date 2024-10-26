@@ -72,7 +72,11 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         public void resetRectangles() {
             for(int i = 0; i < numRectangles; i++)
             {
-                rectangles[i] = rectanglesCopy[i];
+                ColoredRectangle copyRect = rectanglesCopy[i];
+                rectangles[i] = new ColoredRectangle(
+                    new RectangleF(copyRect.rect.X, copyRect.rect.Y, copyRect.rect.Width, copyRect.rect.Height),
+                    Brushes.White
+                    );
             }
         }
 

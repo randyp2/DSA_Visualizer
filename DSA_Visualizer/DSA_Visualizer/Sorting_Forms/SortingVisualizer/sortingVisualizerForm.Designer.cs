@@ -101,6 +101,7 @@
             this.algComboBox.Name = "algComboBox";
             this.algComboBox.Size = new System.Drawing.Size(121, 21);
             this.algComboBox.TabIndex = 4;
+           
             // 
             // panel1
             // 
@@ -246,6 +247,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "sortingVisualizerForm";
             this.Text = "sortingForm";
+            this.Load += new System.EventHandler(this.sortingVisualizerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sizeBar)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
