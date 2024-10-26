@@ -94,6 +94,7 @@
             this.algComboBox.Items.AddRange(new object[] {
             "Bogosort",
             "Bubble Sort",
+            "Insertion Sort",
             "Selection Sort",
             "Quick Sort",
             "Merge Sort"});
@@ -101,7 +102,6 @@
             this.algComboBox.Name = "algComboBox";
             this.algComboBox.Size = new System.Drawing.Size(121, 21);
             this.algComboBox.TabIndex = 4;
-           
             // 
             // panel1
             // 

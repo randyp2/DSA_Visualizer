@@ -87,8 +87,12 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
                 case "Quick Sort":
                     algorithms = new QuickSort(this.recMnger);
                     initializeAlgorithmOutputs();
-
                     break;
+
+                case "Insertion Sort":
+                    algorithms = new InsertionSort(this.recMnger);
+                    initializeAlgorithmOutputs();
+                    break;  
             }
 
             int reversedVal = speedTrackBar.Maximum - speedTrackBar.Value + speedTrackBar.Minimum;
@@ -130,7 +134,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         /* ====================== FORM EVENTS ====================== */
         private void sortingVisualizerForm_Load(object sender, EventArgs e)
         {
-
+            initializeRecMnger(sizeBar.Value);
+            displayPanel.Invalidate();
         }
 
         // Paint event to trigger rectangle drawing
@@ -190,6 +195,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         {
             algorithms.terminateSort();
             resetDisplayPanel();
+            resetLabelOutputs();
             initializeAlgorithm(); // Create new instance of algorithm
         }
 

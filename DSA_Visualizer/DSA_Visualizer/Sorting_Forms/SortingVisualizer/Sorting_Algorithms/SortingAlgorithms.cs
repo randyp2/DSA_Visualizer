@@ -89,7 +89,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             cancellationTokenSource.Cancel(); // Tells token to cancel any tasks associated with it
         }
 
-        /* ====================== SWAPPING ====================== */
+        /* ====================== ANIMATION LOGIC ====================== */
         public async Task swap(int i, int j)
         {
 
@@ -100,6 +100,17 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             recManager.Rectangles[j] = temp;
             recManager.Panel.Invalidate();
         }
+
+        public async Task moveRectangle(int i, int j) { 
+            await animateMoveRectangle(i, j);
+
+            recManager.Rectangles[j] = recManager.Rectangles[i];
+            
+        }
+
+
+        /* ====================== ANIMATIONS ====================== */
+
 
         /*
          * @brief Swap animation function
@@ -122,9 +133,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             RectangleF rectI = recManager.Rectangles[i].rect;
             RectangleF rectJ = recManager.Rectangles[j].rect;
 
-            // Claculate distance between two rectangles
-            float distance = Math.Abs(rectJ.X - rectI.X);
-
+            // Iterate until rectangle(s) reach desired position
             while (true) {
                 if (cancellationTokenSource.IsCancellationRequested)
                 {
@@ -199,6 +208,74 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             await Task.Delay((animationSpeed/2));
         }
 
+        public async Task animateMoveRectangle(int i, int j)
+        {
+            if (this.IsPaused) await pauseSort(); // Pause animation if paused
+
+
+            // Update swapping bool
+            recManager.Rectangles[i].isSwapping = true;
+
+            //Store original rectangles
+            RectangleF rectI = recManager.Rectangles[i].rect;
+            RectangleF rectJ = recManager.Rectangles[j].rect;
+
+            // Iterate until rectangle(s) reach desired position
+            while (true)
+            {
+                Console.WriteLine("Rect I xPos: " + rectI.X.ToString());
+                Console.WriteLine("Rect J xPos: " + rectJ.X.ToString());
+
+                if (cancellationTokenSource.IsCancellationRequested)
+                {
+                    recManager.Rectangles[i].isSwapping = false;
+                    recManager.deselectRec(i);
+                    return; // Exit out of function
+                }
+
+                if (this.IsPaused) await pauseSort(); // Pause sort if paused
+
+                if (recManager.Rectangles[i].rect.X + offsetX < rectJ.X)
+                {
+                    recManager.Rectangles[i].rect = new RectangleF(
+                        recManager.Rectangles[i].rect.X + offsetX,
+                        rectI.Y,
+                        rectI.Width,
+                        rectI.Height
+                    );
+                }
+                else
+                {
+                    // Snap rectangle to target position
+                    recManager.Rectangles[i].rect = new RectangleF(
+                        rectJ.X,
+                        rectI.Y,
+                        rectI.Width,
+                        rectI.Height
+                    );
+                }
+                // Check if they arrived at target desitination
+                if (recManager.Rectangles[i].rect.X >= rectJ.X && recManager.Rectangles[j].rect.X <= rectI.X)
+                {
+                    recManager.Panel.Invalidate();
+                    break;
+                }
+
+                recManager.Panel.Invalidate(); // Redraw panel
+                await Task.Delay(animationSpeed);
+
+            }
+
+            if (this.IsPaused) await pauseSort(); // Pause sort if paused
+
+            // Unhighlight the moved rectangle
+            recManager.deselectRec(i);
+
+            // Update swaping bools
+            recManager.Rectangles[i].isSwapping = false;
+
+            await Task.Delay((animationSpeed / 2));
+        }
 
         public async Task highlightAllGreen() {
             Color lightGreen = ColorTranslator.FromHtml("#3ade60");
