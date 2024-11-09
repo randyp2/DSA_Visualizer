@@ -102,6 +102,7 @@
             this.algComboBox.Name = "algComboBox";
             this.algComboBox.Size = new System.Drawing.Size(121, 21);
             this.algComboBox.TabIndex = 4;
+            this.algComboBox.SelectedValueChanged += new System.EventHandler(this.algComboBox_SelectedValueChanged);
             // 
             // panel1
             // 

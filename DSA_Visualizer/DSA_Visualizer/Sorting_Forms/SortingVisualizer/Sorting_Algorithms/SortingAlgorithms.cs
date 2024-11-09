@@ -13,7 +13,6 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
     public abstract class SortingAlgorithms
     {
 
-
         protected RectangleManger recManager;
 
         /* Pass this token to whichever functions need to be canclled*/
@@ -21,13 +20,15 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
         private Label compareOutput;
         private Label swapOutput;
 
-
+        // Track compares and swaps
         private int totalComparisons;
         private int totalSwaps;
 
+        // Animation properties
         protected int animationSpeed;
         private float animationSteps; // Dictates smoothness of animation
         private float offsetX;
+        private float offsetY; 
 
         private bool isPaused;
 
@@ -43,6 +44,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             this.animationSpeed = 300;
 
             this.offsetX = 10f;
+            this.offsetY = 10f;
 
             this.isPaused = false;
         }
@@ -75,6 +77,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
 
         public void setAnimationSpeed(int val) { this.animationSpeed = val; }
         public void setOffsetX(float val) { this.offsetX = val; }
+        public void setOffsetY(float val) { this.offsetY = val; }    
+
 
         public abstract Task sort(); // Abstract method to impelment
 
@@ -102,10 +106,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
         }
 
         public async Task moveRectangle(int i, int j) { 
-            await animateMoveRectangle(i, j);
-
-            recManager.Rectangles[j] = recManager.Rectangles[i];
-            
+            await animateMoveRectangle(i, j);            
         }
 
 
@@ -220,11 +221,15 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             RectangleF rectI = recManager.Rectangles[i].rect;
             RectangleF rectJ = recManager.Rectangles[j].rect;
 
+            // turn rectangle invisible
+            // Update rec manager to draw in respect to form
+
+            float finalXPos = rectJ.X;
+            float finalYPos = rectJ.Y + 100;
+
             // Iterate until rectangle(s) reach desired position
             while (true)
             {
-                Console.WriteLine("Rect I xPos: " + rectI.X.ToString());
-                Console.WriteLine("Rect J xPos: " + rectJ.X.ToString());
 
                 if (cancellationTokenSource.IsCancellationRequested)
                 {
@@ -235,7 +240,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
 
                 if (this.IsPaused) await pauseSort(); // Pause sort if paused
 
-                if (recManager.Rectangles[i].rect.X + offsetX < rectJ.X)
+                // Update xPos
+                if (recManager.Rectangles[i].rect.X + offsetX < finalXPos)
                 {
                     recManager.Rectangles[i].rect = new RectangleF(
                         recManager.Rectangles[i].rect.X + offsetX,
@@ -246,16 +252,38 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
                 }
                 else
                 {
-                    // Snap rectangle to target position
+                    // Snap rectangle to target X position
                     recManager.Rectangles[i].rect = new RectangleF(
-                        rectJ.X,
+                        finalXPos,
                         rectI.Y,
                         rectI.Width,
                         rectI.Height
                     );
                 }
+
+                // Update yPos
+                if (recManager.Rectangles[i].rect.Y + offsetY < finalYPos)
+                {
+                    recManager.Rectangles[i].rect = new RectangleF(
+                        rectI.X,
+                        recManager.Rectangles[i].rect.Y + offsetY,
+                        rectI.Width,
+                        rectI.Height
+                    );
+                }
+                else 
+                {
+                    // Snap rectangle to target Y position
+                    recManager.Rectangles[i].rect = new RectangleF(
+                        rectI.X,
+                        finalYPos,
+                        rectI.Width,
+                        rectI.Height
+                    );
+                }
+
                 // Check if they arrived at target desitination
-                if (recManager.Rectangles[i].rect.X >= rectJ.X && recManager.Rectangles[j].rect.X <= rectI.X)
+                if (recManager.Rectangles[i].rect.X >= finalXPos && recManager.Rectangles[i].rect.Y >= finalYPos)
                 {
                     recManager.Panel.Invalidate();
                     break;
