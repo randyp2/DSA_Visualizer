@@ -105,10 +105,6 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             recManager.Panel.Invalidate();
         }
 
-        public async Task moveRectangle(int i, int j) { 
-            await animateMoveRectangle(i, j);            
-        }
-
 
         /* ====================== ANIMATIONS ====================== */
 
@@ -209,100 +205,55 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             await Task.Delay((animationSpeed/2));
         }
 
-        public async Task animateMoveRectangle(int i, int j)
+        public async Task animateMoveRectangle(int i, float finalXPos, float finalYPos)
         {
             if (this.IsPaused) await pauseSort(); // Pause animation if paused
 
+            RectangleF rectI;
 
-            // Update swapping bool
-            recManager.Rectangles[i].isSwapping = true;
 
-            //Store original rectangles
-            RectangleF rectI = recManager.Rectangles[i].rect;
-            RectangleF rectJ = recManager.Rectangles[j].rect;
-
-            // turn rectangle invisible
-            // Update rec manager to draw in respect to form
-
-            float finalXPos = rectJ.X;
-            float finalYPos = rectJ.Y + 100;
-
-            // Iterate until rectangle(s) reach desired position
             while (true)
             {
+                rectI = recManager.Rectangles[i].rect;
 
-                if (cancellationTokenSource.IsCancellationRequested)
-                {
-                    recManager.Rectangles[i].isSwapping = false;
-                    recManager.deselectRec(i);
-                    return; // Exit out of function
-                }
+                float distanceX = finalXPos - rectI.Location.X;
+                float distanceY = finalYPos - rectI.Location.Y;
 
-                if (this.IsPaused) await pauseSort(); // Pause sort if paused
+                float diagonalDistance = (float)Math.Sqrt(distanceX * distanceX + distanceY * distanceY); // Sqrt(a^2 + b^2)
 
-                // Update xPos
-                if (recManager.Rectangles[i].rect.X + offsetX < finalXPos)
-                {
-                    recManager.Rectangles[i].rect = new RectangleF(
-                        recManager.Rectangles[i].rect.X + offsetX,
-                        rectI.Y,
-                        rectI.Width,
-                        rectI.Height
-                    );
-                }
-                else
-                {
-                    // Snap rectangle to target X position
-                    recManager.Rectangles[i].rect = new RectangleF(
-                        finalXPos,
-                        rectI.Y,
-                        rectI.Width,
-                        rectI.Height
-                    );
-                }
+                if (diagonalDistance == 0) break; // Already at desired position
 
-                // Update yPos
-                if (recManager.Rectangles[i].rect.Y + offsetY < finalYPos)
-                {
-                    recManager.Rectangles[i].rect = new RectangleF(
-                        rectI.X,
-                        recManager.Rectangles[i].rect.Y + offsetY,
-                        rectI.Width,
-                        rectI.Height
-                    );
-                }
-                else 
-                {
-                    // Snap rectangle to target Y position
-                    recManager.Rectangles[i].rect = new RectangleF(
-                        rectI.X,
-                        finalYPos,
-                        rectI.Width,
-                        rectI.Height
-                    );
-                }
+                // Calculate offsets proportional to diagonal distance
+                float incX = (distanceX / diagonalDistance) * 50;
+                float incY = (distanceY / diagonalDistance) * 50;
 
-                // Check if they arrived at target desitination
-                if (recManager.Rectangles[i].rect.X >= finalXPos && recManager.Rectangles[i].rect.Y >= finalYPos)
-                {
-                    recManager.Panel.Invalidate();
-                    break;
-                }
+                float currXPos = rectI.Location.X + incX;
+                float currYPos = rectI.Location.Y + incY;
 
-                recManager.Panel.Invalidate(); // Redraw panel
+                Console.WriteLine("Curr X pos: " + currXPos + " Final X: " + finalXPos);
+                Console.WriteLine("Curr Y pos: " + currYPos + " Final Y: " + finalYPos);
+
+                // Snap to position if passed target
+                if ((incX > 0 && currXPos >= finalXPos-10) || (incX < 0 && currXPos <= finalXPos+10)) currXPos = finalXPos;
+                if (currYPos >= finalYPos) currYPos = finalYPos;
+
+                recManager.Rectangles[i].rect = new RectangleF(
+                    currXPos,
+                    currYPos,
+                    rectI.Width,
+                    rectI.Height
+                );
+
+                // Redraw
+                recManager.Panel.Invalidate(); 
                 await Task.Delay(animationSpeed);
 
             }
+          
+            Console.WriteLine("OUTSIDE WHILE LOOP!");
+            Console.WriteLine("New x: " + recManager.Rectangles[i].rect.Location.X);
+            Console.WriteLine("New y: " + recManager.Rectangles[i].rect.Location.Y);
 
-            if (this.IsPaused) await pauseSort(); // Pause sort if paused
-
-            // Unhighlight the moved rectangle
-            recManager.deselectRec(i);
-
-            // Update swaping bools
-            recManager.Rectangles[i].isSwapping = false;
-
-            await Task.Delay((animationSpeed / 2));
         }
 
         public async Task highlightAllGreen() {

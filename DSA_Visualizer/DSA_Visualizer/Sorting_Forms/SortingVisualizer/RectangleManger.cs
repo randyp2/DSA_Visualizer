@@ -17,18 +17,24 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         Random rnd;
 
         int numRectangles;
+        int panelCurrHeight;
         
         public RectangleManger(Panel displayPanel) {
 
             populateRectangles();
             numRectangles = 0;
             this.panel = displayPanel;
-            this.rnd = new Random();
+            this.panelCurrHeight = 0;
 
+            this.rnd = new Random();
             this.rectanglesCopy = new List<ColoredRectangle>();
             this.rectangles = new List<ColoredRectangle>();
         }
 
+        public int PanelCurrHeight { 
+            get { return this.panelCurrHeight; }
+            set { this.panelCurrHeight = value; }
+        }
 
         public int NumRectangles {
             get { return numRectangles; }
@@ -59,9 +65,9 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 
             for (int i = 0; i < numRectangles; i++)
             {
-                float height = rnd.Next(0, this.panel.Height);
+                float height = rnd.Next(0, panelCurrHeight);
                 float xPos = i * width;
-                float yPos = panel.Height - height;
+                float yPos = panelCurrHeight - height;
 
                 rectanglesCopy.Add(new ColoredRectangle(new RectangleF(xPos, yPos, width, height), Brushes.White));
                 rectangles.Add(new ColoredRectangle(new RectangleF(xPos, yPos, width, height), Brushes.White));
@@ -74,8 +80,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             {
                 ColoredRectangle copyRect = rectanglesCopy[i];
                 rectangles[i] = new ColoredRectangle(
-                    new RectangleF(copyRect.rect.X, 
-                    panel.Height - copyRect.rect.Height, 
+                    new RectangleF(copyRect.rect.X,
+                    panelCurrHeight - copyRect.rect.Height, 
                     copyRect.rect.Width, 
                     copyRect.rect.Height),
 

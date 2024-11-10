@@ -19,7 +19,12 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
 
             //await mergeSort(recManager.Rectangles, 0, recManager.NumRectangles - 1);
             recManager.selectRec(1, Brushes.Blue);
-            await animateMoveRectangle(1, 3);
+
+
+            float finalXPos = recManager.Rectangles[3].rect.Location.X;
+            float finalYPos = recManager.Panel.Height - recManager.Rectangles[1].rect.Height;
+
+            await animateMoveRectangle(5, finalXPos, finalYPos);
 
 
             Console.Write("After swap: ");

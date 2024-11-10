@@ -15,7 +15,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
     {
         private const int RESIZE_HEIGHT = 175;
         private const int DISPLAY_HEIGHT = 431;
-        private const int DISPLAY_WIDTH = 1000;
+        private const int MINIMIZED_HEIGHT = 256;
+
 
         private const int DISPLAY_XPOS = 79;
         private const int DISPLAY_YPOS = 101;
@@ -23,16 +24,21 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         private RectangleManger recMnger;
         private SortingAlgorithms algorithms;
 
+
+
         public sortingVisualizerForm()
         {
             InitializeComponent();
             SetDoubleBuffered(this); // Remove flickering of form
             SetDoubleBuffered(displayPanel); // Remove flickering of display panel
-            recMnger = new RectangleManger(displayPanel);
-
             this.displayPanel.BackColor = Color.FromArgb(225, 0, 0, 0); // Transparent background
+
+            recMnger = new RectangleManger(displayPanel);
+            recMnger.PanelCurrHeight = DISPLAY_HEIGHT;
+            
             this.resetBtn.Hide();
         }
+
 
         /* ====================== RESET FUNCTIONS ====================== */
 
@@ -56,10 +62,11 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 
         public void resetDisplay() {
             if (displayPanel.Size.Height == DISPLAY_HEIGHT) return;
+            recMnger.PanelCurrHeight = DISPLAY_HEIGHT;
 
             // Decrease size and recenter
-            displayPanel.Size = new Size(displayPanel.Size.Width, displayPanel.Size.Height + RESIZE_HEIGHT);
-            displayPanel.Location = new Point(displayPanel.Location.X, DISPLAY_YPOS);
+            displayPanel.Size = new Size(displayPanel.Size.Width, displayPanel.Size.Height - RESIZE_HEIGHT);
+            displayPanel.Location = new Point(displayPanel.Location.X, displayPanel.Location.Y + (RESIZE_HEIGHT / 2));
 
             // Repopulate & redraw rectangles
             recMnger.populateRectangles();
@@ -70,16 +77,20 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         /* ====================== FORM MODIFIER FUNCTIONS ====================== */
 
         public void moveDisplay() {
-            
-            // Increase size and recenter
-            displayPanel.Size = new Size(displayPanel.Size.Width, displayPanel.Size.Height - RESIZE_HEIGHT);
-            displayPanel.Location = new Point(displayPanel.Location.X, 0);
+            int newSize = DISPLAY_HEIGHT + RESIZE_HEIGHT;
 
+            recMnger.PanelCurrHeight = newSize/2;
+
+            // Increase size and recenter
+            displayPanel.Size = new Size(displayPanel.Size.Width, newSize); 
+            displayPanel.Location = new Point(displayPanel.Location.X, displayPanel.Location.Y - (RESIZE_HEIGHT/2));
+
+           
             // Repopulate & redraw rectangles
             recMnger.populateRectangles();
-            displayPanel.Invalidate();        
+            displayPanel.Invalidate();
 
-            
+
         }
 
         /* ====================== INITIALIZATION FUNCTIONS ====================== */
