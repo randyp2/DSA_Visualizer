@@ -18,6 +18,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 
         int numRectangles;
         int panelCurrHeight;
+        int width;
         
         public RectangleManger(Panel displayPanel) {
 
@@ -25,7 +26,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             numRectangles = 0;
             this.panel = displayPanel;
             this.panelCurrHeight = 0;
-
+            this.width = 0;
+            
             this.rnd = new Random();
             this.rectanglesCopy = new List<ColoredRectangle>();
             this.rectangles = new List<ColoredRectangle>();
@@ -49,6 +51,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             get { return panel; }
         }
 
+        public int Width { get { return width; } }
+
        
 
         /*
@@ -58,7 +62,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
          */
         public void populateRectangles() {
             if (panel == null) return;
-            float width = panel.Width / numRectangles;
+            this.width = panel.Width / numRectangles;
 
             rectanglesCopy.Clear();
             rectangles.Clear(); // Clear any existing rectangles
@@ -72,11 +76,14 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
                 rectanglesCopy.Add(new ColoredRectangle(new RectangleF(xPos, yPos, width, height), Brushes.White));
                 rectangles.Add(new ColoredRectangle(new RectangleF(xPos, yPos, width, height), Brushes.White));
             }
+
+            
+
         }
 
         // Initialize the rectangles list with their original values (before being swapped)
         public void resetRectangles() {
-            for(int i = 0; i < numRectangles; i++)
+            for (int i = 0; i < numRectangles; i++)
             {
                 ColoredRectangle copyRect = rectanglesCopy[i];
                 rectangles[i] = new ColoredRectangle(

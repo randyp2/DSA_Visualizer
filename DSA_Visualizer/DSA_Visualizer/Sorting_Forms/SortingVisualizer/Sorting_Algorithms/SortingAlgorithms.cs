@@ -58,7 +58,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             set { this.swapOutput = value;  }
         }
 
-
+       
         public int TotalComparisons { 
             get { return totalComparisons; }
             set { totalComparisons = value; }
@@ -205,58 +205,53 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             await Task.Delay((animationSpeed/2));
         }
 
-        public async Task animateMoveRectangle(int i, float finalXPos, float finalYPos)
+
+        public async Task animateMoveRectangle(ColoredRectangle rectI, float finalXPos, float finalYPos)
         {
             if (this.IsPaused) await pauseSort(); // Pause animation if paused
-
-            RectangleF rectI;
 
 
             while (true)
             {
-                rectI = recManager.Rectangles[i].rect;
 
-                float distanceX = finalXPos - rectI.Location.X;
-                float distanceY = finalYPos - rectI.Location.Y;
+
+                float distanceX = finalXPos - rectI.rect.Location.X;
+                float distanceY = finalYPos - rectI.rect.Location.Y;
 
                 float diagonalDistance = (float)Math.Sqrt(distanceX * distanceX + distanceY * distanceY); // Sqrt(a^2 + b^2)
 
                 if (diagonalDistance == 0) break; // Already at desired position
 
                 // Calculate offsets proportional to diagonal distance
-                float incX = (distanceX / diagonalDistance) * 50;
-                float incY = (distanceY / diagonalDistance) * 50;
+                float incX = (distanceX / diagonalDistance) * offsetX;
+                float incY = (distanceY / diagonalDistance) * offsetY;
 
-                float currXPos = rectI.Location.X + incX;
-                float currYPos = rectI.Location.Y + incY;
-
-                Console.WriteLine("Curr X pos: " + currXPos + " Final X: " + finalXPos);
-                Console.WriteLine("Curr Y pos: " + currYPos + " Final Y: " + finalYPos);
+                float currXPos = rectI.rect.Location.X + incX;
+                float currYPos = rectI.rect.Location.Y + incY;
 
                 // Snap to position if passed target
-                if ((incX > 0 && currXPos >= finalXPos-10) || (incX < 0 && currXPos <= finalXPos+10)) currXPos = finalXPos;
+                if ((incX > 0 && currXPos >= finalXPos - 10) || (incX < 0 && currXPos <= finalXPos + 10)) currXPos = finalXPos;
                 if (currYPos >= finalYPos) currYPos = finalYPos;
 
-                recManager.Rectangles[i].rect = new RectangleF(
+                rectI.rect = new RectangleF(
                     currXPos,
                     currYPos,
-                    rectI.Width,
-                    rectI.Height
+                    rectI.rect.Width,
+                    rectI.rect.Height
                 );
 
+
                 // Redraw
-                recManager.Panel.Invalidate(); 
+                recManager.Panel.Invalidate();
                 await Task.Delay(animationSpeed);
 
             }
-          
-            Console.WriteLine("OUTSIDE WHILE LOOP!");
-            Console.WriteLine("New x: " + recManager.Rectangles[i].rect.Location.X);
-            Console.WriteLine("New y: " + recManager.Rectangles[i].rect.Location.Y);
-
         }
 
-        public async Task highlightAllGreen() {
+
+
+
+            public async Task highlightAllGreen() {
             Color lightGreen = ColorTranslator.FromHtml("#3ade60");
 
             for (int i = 0; i < recManager.NumRectangles; i++) {

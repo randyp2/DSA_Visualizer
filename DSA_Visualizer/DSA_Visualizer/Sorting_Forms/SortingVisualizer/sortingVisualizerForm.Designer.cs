@@ -126,6 +126,7 @@
             // 
             // cmprOutput
             // 
+            this.cmprOutput.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmprOutput.AutoSize = true;
             this.cmprOutput.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmprOutput.ForeColor = System.Drawing.Color.White;
@@ -137,6 +138,7 @@
             // 
             // swapsOutput
             // 
+            this.swapsOutput.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.swapsOutput.AutoSize = true;
             this.swapsOutput.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.swapsOutput.ForeColor = System.Drawing.Color.White;
@@ -148,6 +150,7 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -160,6 +163,7 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -15,6 +15,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
     {
         private const int RESIZE_HEIGHT = 175;
         private const int DISPLAY_HEIGHT = 431;
+        private const int INCREASED_HEIGHT = 606;
         private const int MINIMIZED_HEIGHT = 256;
 
 
@@ -24,7 +25,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         private RectangleManger recMnger;
         private SortingAlgorithms algorithms;
 
-
+        private bool resetBtnPressed;
 
         public sortingVisualizerForm()
         {
@@ -35,6 +36,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 
             recMnger = new RectangleManger(displayPanel);
             recMnger.PanelCurrHeight = DISPLAY_HEIGHT;
+            this.resetBtnPressed = false;
             
             this.resetBtn.Hide();
         }
@@ -77,7 +79,11 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         /* ====================== FORM MODIFIER FUNCTIONS ====================== */
 
         public void moveDisplay() {
+            
+
+
             int newSize = DISPLAY_HEIGHT + RESIZE_HEIGHT;
+            if (recMnger.PanelCurrHeight == newSize/2) return;
 
             recMnger.PanelCurrHeight = newSize/2;
 
@@ -126,13 +132,14 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         private void initializeAlgorithm()
         {
             string algorithm = algComboBox.Text;
-            resetDisplay();
+
+            if (algorithm != "Merge Sort") resetDisplay();
 
             // Determine algorithm
             switch (algorithm)
             {
                 case "Quick Sort":
-                    algorithms = new QuickSort(this.recMnger);  
+                    algorithms = new QuickSort(this.recMnger);
                     initializeAlgorithmOutputs();
                     break;
                 case "Insertion Sort":
@@ -262,6 +269,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         // Reset display panel
         private void resetBtn_Click(object sender, EventArgs e)
         {
+            this.resetBtnPressed = true;
             algorithms.terminateSort();
             resetDisplayPanel();
             resetLabelOutputs();
