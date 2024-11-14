@@ -22,10 +22,6 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             Console.Write("Before swap: ");
             recManager.printRectangleHeights();
 
-
-
-            //await moveRectangle(recManager.Rectangles[1], 3);
-
             await mergeSort(recManager.Rectangles, 0, recManager.NumRectangles - 1);
       
             Console.Write("After swap: ");
@@ -134,16 +130,13 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
                 k++;
             }
 
-            if (recManager.NumRectangles < 250 || animationSpeed != 2)
-            {
-                // Execute all tasks simultaneously
-                await Task.WhenAll(moveTasks);
-                await placeBack(list, start, end);
-                await highlightSection(start, end, Brushes.White);
-            }
-            else {
-                recManager.Panel.Invalidate();
-            }
+            
+            // Execute all tasks simultaneously
+            await Task.WhenAll(moveTasks);
+            await placeBack(list, start, end);
+            await highlightSection(start, end, Brushes.White);
+            
+            
         }
 
         // Move rectangle i underneath j's position
@@ -151,17 +144,29 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
         {
             float finalX = recManager.Width * j;
             float finalY = recManager.Panel.Height - rectI.rect.Height;
-         
-            await animateMoveRectangle(rectI, finalX, finalY);   
+
+            // If small amount of rectangles or animationSpeed is slow -> slow down animation speed
+            // 
+            if (recManager.NumRectangles < 250 || animationSpeed != 2)
+            {
+                await animateMoveRectangle(rectI, finalX, finalY);
+            }
+            else { // Skip animation and update position immediately
+                finalY += rectI.rect.Height;
+                rectI.rect = new RectangleF(finalX, finalY, rectI.rect.Width, rectI.rect.Height);
+                recManager.Panel.Invalidate();
+            }
+                
         }
 
         // Place back into original positions
         public async Task placeBack(List<ColoredRectangle> list, int start, int end) {
             List<Task> moveTasks = new List<Task>();    
 
+            // Move rectangles back to their original position
             for (int i = start; i <= end; i++) {
                 float finalX = list[i].rect.X;
-                float finalY = recManager.PanelCurrHeight - list[i].rect.Height;
+                float finalY = recManager.PanelCurrHeight - list[i].rect.Height; 
 
                 moveTasks.Add(animateMoveRectangle(list[i], finalX, finalY));            
             }
