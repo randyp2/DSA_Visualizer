@@ -149,6 +149,12 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
                     initializeAlgorithmOutputs();
                     break;
 
+                case "Selection Sort":
+                    algorithms = new SelectionSort(this.recMnger);
+                    initializeAlgorithmOutputs();
+                    break;
+
+
                 // O(nlogn) algorithms
                 case "Quick Sort":
                     algorithms = new QuickSort(this.recMnger);
