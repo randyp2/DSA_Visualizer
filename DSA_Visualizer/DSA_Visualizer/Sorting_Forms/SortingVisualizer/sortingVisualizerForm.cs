@@ -13,19 +13,34 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 {
     public partial class sortingVisualizerForm : Form
     {
+        private const int RESIZE_HEIGHT = 175;
+        private const int DISPLAY_HEIGHT = 431;
+        private const int INCREASED_HEIGHT = 606;
+        private const int MINIMIZED_HEIGHT = 256;
+
+
+        private const int DISPLAY_XPOS = 79;
+        private const int DISPLAY_YPOS = 101;
+
         private RectangleManger recMnger;
         private SortingAlgorithms algorithms;
+
+        private bool resetBtnPressed;
 
         public sortingVisualizerForm()
         {
             InitializeComponent();
             SetDoubleBuffered(this); // Remove flickering of form
             SetDoubleBuffered(displayPanel); // Remove flickering of display panel
-            recMnger = new RectangleManger(displayPanel);
-
             this.displayPanel.BackColor = Color.FromArgb(225, 0, 0, 0); // Transparent background
+
+            recMnger = new RectangleManger(displayPanel);
+            recMnger.PanelCurrHeight = DISPLAY_HEIGHT;
+            this.resetBtnPressed = false;
+            
             this.resetBtn.Hide();
         }
+
 
         /* ====================== RESET FUNCTIONS ====================== */
 
@@ -47,8 +62,45 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             this.swapsOutput.Text = "0";
         }
 
+        public void resetDisplay() {
+            if (displayPanel.Size.Height == DISPLAY_HEIGHT) return;
+            recMnger.PanelCurrHeight = DISPLAY_HEIGHT;
+
+            // Decrease size and recenter
+            displayPanel.Size = new Size(displayPanel.Size.Width, displayPanel.Size.Height - RESIZE_HEIGHT);
+            displayPanel.Location = new Point(displayPanel.Location.X, displayPanel.Location.Y + (RESIZE_HEIGHT / 2));
+
+            // Repopulate & redraw rectangles
+            recMnger.populateRectangles();
+            displayPanel.Invalidate();
+
+        }
+
+        /* ====================== FORM MODIFIER FUNCTIONS ====================== */
+
+        public void moveDisplay() {
+            
+
+
+            int newSize = DISPLAY_HEIGHT + RESIZE_HEIGHT;
+            if (recMnger.PanelCurrHeight == newSize/2) return;
+
+            recMnger.PanelCurrHeight = newSize/2;
+
+            // Increase size and recenter
+            displayPanel.Size = new Size(displayPanel.Size.Width, newSize); 
+            displayPanel.Location = new Point(displayPanel.Location.X, displayPanel.Location.Y - (RESIZE_HEIGHT/2));
+
+           
+            // Repopulate & redraw rectangles
+            recMnger.populateRectangles();
+            displayPanel.Invalidate();
+
+
+        }
+
         /* ====================== INITIALIZATION FUNCTIONS ====================== */
-       
+
         /*
          * @brief Initializse recManager class
          * 
@@ -81,6 +133,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         {
             string algorithm = algComboBox.Text;
 
+            if (algorithm != "Merge Sort") resetDisplay();
+
             // Determine algorithm
             switch (algorithm)
             {
@@ -88,11 +142,16 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
                     algorithms = new QuickSort(this.recMnger);
                     initializeAlgorithmOutputs();
                     break;
-
                 case "Insertion Sort":
                     algorithms = new InsertionSort(this.recMnger);
                     initializeAlgorithmOutputs();
-                    break;  
+                    break;
+
+                case "Merge Sort":
+                    algorithms = new MergeSort(this.recMnger);
+                    moveDisplay();
+                    initializeAlgorithmOutputs();
+                    break;
             }
 
             int reversedVal = speedTrackBar.Maximum - speedTrackBar.Value + speedTrackBar.Minimum;
@@ -100,20 +159,35 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             initializeAlgorithmSpeed();
         }
 
+        
+
+
+        /*
+         * @brief Update algorithm speed
+         * 
+         * @details Have left most trackbar be slowest speed and rightmost be fastest speed
+         */
         private void initializeAlgorithmSpeed() {
             int reversedVal = speedTrackBar.Maximum - speedTrackBar.Value + speedTrackBar.Minimum;
             algorithms?.setAnimationSpeed(reversedVal);
 
             if (speedTrackBar.Value == speedTrackBar.Maximum) reversedVal = 1;
-            if (sizeBar.Value != 0) algorithms?.setOffsetX(1000 / reversedVal);
+            if (sizeBar.Value != 0)
+            {
+                algorithms?.setOffsetX(1000 / reversedVal);
+                algorithms?.setOffsetY(1000 / reversedVal);
+            }
+            
         }
 
+        // Update total compares and swaps
         public void initializeAlgorithmOutputs()
         {
             algorithms.CompareOutput = cmprOutput;
             algorithms.SwapOutput = swapsOutput;
         }
-
+        
+        // Check for algorithm
         public bool validAlgorithm() {
             // Error check
             if (algComboBox.Text == "")
@@ -130,6 +204,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 
             return true;
         }
+
+
 
         /* ====================== FORM EVENTS ====================== */
         private void sortingVisualizerForm_Load(object sender, EventArgs e)
@@ -166,7 +242,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             {
                 if (!validAlgorithm()) return;
 
-                initializeAlgorithm();
+                //initializeAlgorithm();
                 algorithms?.sort(); // If class is not null
 
                 if (algorithms != null)
@@ -193,10 +269,16 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         // Reset display panel
         private void resetBtn_Click(object sender, EventArgs e)
         {
+            this.resetBtnPressed = true;
             algorithms.terminateSort();
             resetDisplayPanel();
             resetLabelOutputs();
             initializeAlgorithm(); // Create new instance of algorithm
+        }
+
+        private void algComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            initializeAlgorithm();
         }
 
         // Update number of rectangles
@@ -213,6 +295,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         {
             initializeAlgorithmSpeed();
         }
+
 
 
 
@@ -247,6 +330,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
                 return cp;
             }
         }
+
+       
 
         #endregion
 

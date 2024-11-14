@@ -12,9 +12,9 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         public bool isSwapping { get; set; }
         public RectangleF rect { get; set; }
         public Brush Color { get; set; }
-
         public bool isSorted { get; set; }
 
+        public int originalIndex { get; set; } // For mergesort
         public ColoredRectangle(RectangleF rect, Brush color)
         {
             this.rect = rect;

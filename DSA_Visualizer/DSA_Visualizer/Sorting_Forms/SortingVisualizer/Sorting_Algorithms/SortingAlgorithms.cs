@@ -13,7 +13,6 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
     public abstract class SortingAlgorithms
     {
 
-
         protected RectangleManger recManager;
 
         /* Pass this token to whichever functions need to be canclled*/
@@ -21,13 +20,15 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
         private Label compareOutput;
         private Label swapOutput;
 
-
+        // Track compares and swaps
         private int totalComparisons;
         private int totalSwaps;
 
+        // Animation properties
         protected int animationSpeed;
         private float animationSteps; // Dictates smoothness of animation
         private float offsetX;
+        private float offsetY; 
 
         private bool isPaused;
 
@@ -43,6 +44,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             this.animationSpeed = 300;
 
             this.offsetX = 10f;
+            this.offsetY = 10f;
 
             this.isPaused = false;
         }
@@ -56,7 +58,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             set { this.swapOutput = value;  }
         }
 
-
+       
         public int TotalComparisons { 
             get { return totalComparisons; }
             set { totalComparisons = value; }
@@ -75,6 +77,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
 
         public void setAnimationSpeed(int val) { this.animationSpeed = val; }
         public void setOffsetX(float val) { this.offsetX = val; }
+        public void setOffsetY(float val) { this.offsetY = val; }    
+
 
         public abstract Task sort(); // Abstract method to impelment
 
@@ -99,13 +103,6 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             recManager.Rectangles[i] = recManager.Rectangles[j];
             recManager.Rectangles[j] = temp;
             recManager.Panel.Invalidate();
-        }
-
-        public async Task moveRectangle(int i, int j) { 
-            await animateMoveRectangle(i, j);
-
-            recManager.Rectangles[j] = recManager.Rectangles[i];
-            
         }
 
 
@@ -208,76 +205,53 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             await Task.Delay((animationSpeed/2));
         }
 
-        public async Task animateMoveRectangle(int i, int j)
+
+        public async Task animateMoveRectangle(ColoredRectangle rectI, float finalXPos, float finalYPos)
         {
             if (this.IsPaused) await pauseSort(); // Pause animation if paused
 
 
-            // Update swapping bool
-            recManager.Rectangles[i].isSwapping = true;
-
-            //Store original rectangles
-            RectangleF rectI = recManager.Rectangles[i].rect;
-            RectangleF rectJ = recManager.Rectangles[j].rect;
-
-            // Iterate until rectangle(s) reach desired position
             while (true)
             {
-                Console.WriteLine("Rect I xPos: " + rectI.X.ToString());
-                Console.WriteLine("Rect J xPos: " + rectJ.X.ToString());
 
-                if (cancellationTokenSource.IsCancellationRequested)
-                {
-                    recManager.Rectangles[i].isSwapping = false;
-                    recManager.deselectRec(i);
-                    return; // Exit out of function
-                }
 
-                if (this.IsPaused) await pauseSort(); // Pause sort if paused
+                float distanceX = finalXPos - rectI.rect.Location.X;
+                float distanceY = finalYPos - rectI.rect.Location.Y;
 
-                if (recManager.Rectangles[i].rect.X + offsetX < rectJ.X)
-                {
-                    recManager.Rectangles[i].rect = new RectangleF(
-                        recManager.Rectangles[i].rect.X + offsetX,
-                        rectI.Y,
-                        rectI.Width,
-                        rectI.Height
-                    );
-                }
-                else
-                {
-                    // Snap rectangle to target position
-                    recManager.Rectangles[i].rect = new RectangleF(
-                        rectJ.X,
-                        rectI.Y,
-                        rectI.Width,
-                        rectI.Height
-                    );
-                }
-                // Check if they arrived at target desitination
-                if (recManager.Rectangles[i].rect.X >= rectJ.X && recManager.Rectangles[j].rect.X <= rectI.X)
-                {
-                    recManager.Panel.Invalidate();
-                    break;
-                }
+                float diagonalDistance = (float)Math.Sqrt(distanceX * distanceX + distanceY * distanceY); // Sqrt(a^2 + b^2)
 
-                recManager.Panel.Invalidate(); // Redraw panel
+                if (diagonalDistance == 0) break; // Already at desired position
+
+                // Calculate offsets proportional to diagonal distance
+                float incX = (distanceX / diagonalDistance) * offsetX;
+                float incY = (distanceY / diagonalDistance) * offsetY;
+
+                float currXPos = rectI.rect.Location.X + incX;
+                float currYPos = rectI.rect.Location.Y + incY;
+
+                // Snap to position if passed target
+                if ((incX > 0 && currXPos >= finalXPos - 10) || (incX < 0 && currXPos <= finalXPos + 10)) currXPos = finalXPos;
+                if (currYPos >= finalYPos) currYPos = finalYPos;
+
+                rectI.rect = new RectangleF(
+                    currXPos,
+                    currYPos,
+                    rectI.rect.Width,
+                    rectI.rect.Height
+                );
+
+
+                // Redraw
+                recManager.Panel.Invalidate();
                 await Task.Delay(animationSpeed);
 
             }
-
-            if (this.IsPaused) await pauseSort(); // Pause sort if paused
-
-            // Unhighlight the moved rectangle
-            recManager.deselectRec(i);
-
-            // Update swaping bools
-            recManager.Rectangles[i].isSwapping = false;
-
-            await Task.Delay((animationSpeed / 2));
         }
 
-        public async Task highlightAllGreen() {
+
+
+
+            public async Task highlightAllGreen() {
             Color lightGreen = ColorTranslator.FromHtml("#3ade60");
 
             for (int i = 0; i < recManager.NumRectangles; i++) {
