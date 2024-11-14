@@ -70,7 +70,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
         {
             
             
-            float pivot = list[l].rect.Height;
+            ColoredRectangle pivot = list[l];
             recManager.selectRec(l, Brushes.Green);
             
             int leftPtr = l + 1;
@@ -88,7 +88,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
 
 
                 updateCompare();
-                while (leftPtr <= r && list[leftPtr].rect.Height <= pivot)
+                while (leftPtr <= r && list[leftPtr] <= pivot)
                 {
                     
                     recManager.deselectRec(leftPtr);
@@ -99,7 +99,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
                 }
 
                 updateCompare();
-                while (rightPtr >= l && list[rightPtr].rect.Height > pivot)
+                while (rightPtr >= l && list[rightPtr] > pivot)
                 {
                     
                     recManager.deselectRec(rightPtr);

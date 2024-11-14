@@ -138,14 +138,23 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             // Determine algorithm
             switch (algorithm)
             {
-                case "Quick Sort":
-                    algorithms = new QuickSort(this.recMnger);
-                    initializeAlgorithmOutputs();
-                    break;
+                // O(n^2) algorithms
                 case "Insertion Sort":
                     algorithms = new InsertionSort(this.recMnger);
                     initializeAlgorithmOutputs();
                     break;
+
+                case "Bubble Sort":
+                    algorithms = new BubbleSort(this.recMnger);
+                    initializeAlgorithmOutputs();
+                    break;
+
+                // O(nlogn) algorithms
+                case "Quick Sort":
+                    algorithms = new QuickSort(this.recMnger);
+                    initializeAlgorithmOutputs();
+                    break;
+                
 
                 case "Merge Sort":
                     algorithms = new MergeSort(this.recMnger);

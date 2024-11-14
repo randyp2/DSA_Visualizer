@@ -23,10 +23,10 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             for (int i = 1; i < n; ++i) {
                 if (this.IsPaused) await pauseSort(); // Pause partition if paused
 
-                int key = (int)list[i].rect.Height;
+                ColoredRectangle key = list[i];
                 int j = i - 1;
 
-                while (j >= 0 && list[j].rect.Height > key)
+                while (j >= 0 && list[j] > key)
                 {
                     cancellationTokenSource.Token.ThrowIfCancellationRequested(); // Cancel function 
                     Console.WriteLine("Running inside while loop");
@@ -36,7 +36,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
 
                     // Swap list[j] with list[j+1]
                     await swap(j, j + 1);
-                   
+                    recManager.deselectRec(j+1);
+
                     j--;
                 }
 
