@@ -193,9 +193,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             }
             if (this.IsPaused) await pauseSort(); // Pause sort if paused
 
-            // Unhighlight the swapped rectangles
-            if (!(recManager.Rectangles[i].isSorted)) recManager.deselectRec(i);
-            recManager.deselectRec(j);
+           
            
 
             // Update swaping bools

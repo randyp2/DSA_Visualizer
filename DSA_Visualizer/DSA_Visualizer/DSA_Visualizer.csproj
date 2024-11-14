@@ -68,6 +68,7 @@
     <Compile Include="Sorting_Forms\SortingVisualizer\Sorting_Algorithms\InsertionSort.cs" />
     <Compile Include="Sorting_Forms\SortingVisualizer\Sorting_Algorithms\MergeSort.cs" />
     <Compile Include="Sorting_Forms\SortingVisualizer\Sorting_Algorithms\QuickSort.cs" />
+    <Compile Include="Sorting_Forms\SortingVisualizer\Sorting_Algorithms\BubbleSort.cs" />
     <Compile Include="Sorting_Forms\SortingVisualizer\Sorting_Algorithms\SortingAlgorithms.cs" />
     <EmbeddedResource Include="HomePageForm.resx">
       <DependentUpon>HomePageForm.cs</DependentUpon>

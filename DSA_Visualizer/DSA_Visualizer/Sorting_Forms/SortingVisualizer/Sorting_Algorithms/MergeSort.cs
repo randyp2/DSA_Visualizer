@@ -15,15 +15,14 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
 
         public override async Task sort() {
 
-            // Initialize original indexes
-            for (int i = 0; i < recManager.NumRectangles; i++) recManager.Rectangles[i].originalIndex = i;
-                    
+                               
 
             Console.Write("Before swap: ");
             recManager.printRectangleHeights();
 
             await mergeSort(recManager.Rectangles, 0, recManager.NumRectangles - 1);
-      
+            await highlightAllGreen();
+
             Console.Write("After swap: ");
             recManager.printRectangleHeights();
             
@@ -74,7 +73,6 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             List<ColoredRectangle> rightList = new List<ColoredRectangle>();
 
             // Populate two subarrays
-
             for (int leftIdx = 0; leftIdx < leftListLength; leftIdx++) leftList.Add(list[start + leftIdx]);
             for (int rightIdx = 0; rightIdx < rightListLength; rightIdx++) rightList.Add(list[mid + 1 + rightIdx]);
 
@@ -90,16 +88,14 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             {
                 cancellationTokenSource.Token.ThrowIfCancellationRequested();
                 if (this.IsPaused) await pauseSort(); // Pause sort if paused
-                if (leftList[i].rect.Height < rightList[j].rect.Height)
+                if (leftList[i] < rightList[j])
                 {
-                    
                     moveTasks.Add(moveRectangle(leftList[i], k));
                     list[k] = leftList[i];
                     i++;
                 }
                 else
                 {
-                   
                     moveTasks.Add(moveRectangle(rightList[j], k));
                     list[k] = rightList[j];
                     j++;
@@ -112,7 +108,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             {
                 cancellationTokenSource.Token.ThrowIfCancellationRequested();
                 if (this.IsPaused) await pauseSort(); // Pause sort if paused
-                Console.WriteLine("Moving i(2): " + leftList[i].originalIndex + " to k: " + k);
+                
                 moveTasks.Add(moveRectangle(leftList[i], k));
                 list[k] = leftList[i];
                 i++;
@@ -123,7 +119,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             {
                 cancellationTokenSource.Token.ThrowIfCancellationRequested();
                 if (this.IsPaused) await pauseSort(); // Pause sort if paused
-                Console.WriteLine("Moving j(2): " + rightList[j].originalIndex + " to k: " + k);
+                
                 moveTasks.Add(moveRectangle(rightList[j], k));
                 list[k] = rightList[j];
                 j++;

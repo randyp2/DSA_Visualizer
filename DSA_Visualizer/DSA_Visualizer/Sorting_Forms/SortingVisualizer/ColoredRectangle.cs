@@ -21,5 +21,35 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             Color = color;
             this.isSwapping = false;
         }
+
+        public static bool operator <(ColoredRectangle rectI, ColoredRectangle rectJ) {
+            if (rectI == null || rectJ == null) return false;
+
+            return rectI.rect.Height < rectJ.rect.Height;   
+        }
+
+        public static bool operator >(ColoredRectangle rectI, ColoredRectangle rectJ) {
+            if (rectI == null || rectJ == null) return false;
+
+            return rectI.rect.Height > rectJ.rect.Height;
+        }
+
+
+        public static bool operator <=(ColoredRectangle rectI, ColoredRectangle rectJ)
+        {
+            if (rectI == null || rectJ == null) return false;
+
+            return rectI.rect.Height <= rectJ.rect.Height;
+        }
+
+        public static bool operator >=(ColoredRectangle rectI, ColoredRectangle rectJ)
+        {
+            if (rectI == null || rectJ == null) return false;
+
+            return rectI.rect.Height >= rectJ.rect.Height;
+        }
+
+
+
     }
 }
