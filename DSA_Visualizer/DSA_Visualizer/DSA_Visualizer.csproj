@@ -72,6 +72,7 @@
     <Compile Include="Sorting_Forms\SortingVisualizer\Sorting_Algorithms\BubbleSort.cs" />
     <Compile Include="Sorting_Forms\SortingVisualizer\Sorting_Algorithms\SelectionSort.cs" />
     <Compile Include="Sorting_Forms\SortingVisualizer\Sorting_Algorithms\SortingAlgorithms.cs" />
+    <Compile Include="Sorting_Forms\SortingVisualizer\Sorting_Algorithms\Testing.cs" />
     <EmbeddedResource Include="HomePageForm.resx">
       <DependentUpon>HomePageForm.cs</DependentUpon>
     </EmbeddedResource>

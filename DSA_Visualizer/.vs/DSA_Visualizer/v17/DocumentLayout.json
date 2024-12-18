@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|c:\\users\\rpaha\\onedrive\\desktop\\github\\dsa project\\dsa_visualizer\\dsa_visualizer\\dsa_visualizer\\sorting_forms\\sortingvisualizer\\sorting_algorithms\\testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\sorting_forms\\sortingvisualizer\\sorting_algorithms\\testing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|c:\\users\\rpaha\\onedrive\\desktop\\github\\dsa project\\dsa_visualizer\\dsa_visualizer\\dsa_visualizer\\sorting_forms\\sortingvisualizer\\sortingvisualizerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\sorting_forms\\sortingvisualizer\\sortingvisualizerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -62,11 +66,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 250,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
+              "Title": "Testing.cs",
+              "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\Testing.cs",
+              "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\Testing.cs",
+              "ToolTip": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\Testing.cs",
+              "RelativeToolTip": "DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\Testing.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-18T18:26:11.04Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "BogoSort.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\BogoSort.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\BogoSort.cs",
@@ -78,7 +95,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "SelectionSort.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\SelectionSort.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\SelectionSort.cs",
@@ -90,7 +107,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "BubbleSort.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\BubbleSort.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\BubbleSort.cs",
@@ -102,7 +119,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SortingAlgorithms.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\SortingAlgorithms.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\SortingAlgorithms.cs",
@@ -114,7 +131,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "InsertionSort.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\InsertionSort.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\InsertionSort.cs",
@@ -126,7 +143,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "MergeSort.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\MergeSort.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\MergeSort.cs",
@@ -138,7 +155,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "QuickSort.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\QuickSort.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\Sorting_Algorithms\\QuickSort.cs",
@@ -150,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ColoredRectangle.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\ColoredRectangle.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\ColoredRectangle.cs",
@@ -162,20 +179,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "sortingVisualizerForm.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\sortingVisualizerForm.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\sortingVisualizerForm.cs",
               "ToolTip": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\sortingVisualizerForm.cs",
               "RelativeToolTip": "DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\sortingVisualizerForm.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAADwv2EAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEAAAAAAAAAAAAAswFMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-18T07:18:31.863Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "sortingVisualizerForm.cs [Design]",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\sortingVisualizerForm.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\sortingVisualizerForm.cs",
@@ -186,7 +203,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "RectangleManger.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\RectangleManger.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Sorting_Forms\\SortingVisualizer\\RectangleManger.cs",
@@ -198,7 +215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\Program.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Program.cs",
@@ -210,7 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "HomePageForm.cs",
               "DocumentMoniker": "C:\\Users\\rpaha\\OneDrive\\Desktop\\GitHub\\DSA Project\\DSA_Visualizer\\DSA_Visualizer\\DSA_Visualizer\\HomePageForm.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\HomePageForm.cs",
