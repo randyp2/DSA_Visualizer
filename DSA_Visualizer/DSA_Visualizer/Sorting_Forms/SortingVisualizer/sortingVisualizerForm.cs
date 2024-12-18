@@ -138,6 +138,9 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             // Determine algorithm
             switch (algorithm)
             {
+                case "Bogo Sort":
+
+
                 // O(n^2) algorithms
                 case "Insertion Sort":
                     algorithms = new InsertionSort(this.recMnger);
