@@ -42,9 +42,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.resetBtn = new System.Windows.Forms.Button();
+            this.analysisPanel = new System.Windows.Forms.Panel();
+            this.analysisMenuBtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.sizeBar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.speedTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.analysisMenuBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // displayPanel
@@ -92,7 +95,6 @@
             this.algComboBox.FormattingEnabled = true;
             this.algComboBox.IntegralHeight = false;
             this.algComboBox.Items.AddRange(new object[] {
-            "Bogosort",
             "Bubble Sort",
             "Insertion Sort",
             "Selection Sort",
@@ -239,6 +241,28 @@
             this.resetBtn.UseVisualStyleBackColor = false;
             this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
+            // analysisPanel
+            // 
+            this.analysisPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.analysisPanel.Location = new System.Drawing.Point(454, 33);
+            this.analysisPanel.Name = "analysisPanel";
+            this.analysisPanel.Size = new System.Drawing.Size(703, 586);
+            this.analysisPanel.TabIndex = 6;
+            this.analysisPanel.MouseLeave += new System.EventHandler(this.analysisPanel_MouseLeave);
+            // 
+            // analysisMenuBtn
+            // 
+            this.analysisMenuBtn.BackColor = System.Drawing.Color.Transparent;
+            this.analysisMenuBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.analysisMenuBtn.Image = global::DSA_Visualizer.Properties.Resources.menu_slider;
+            this.analysisMenuBtn.Location = new System.Drawing.Point(1111, 339);
+            this.analysisMenuBtn.Name = "analysisMenuBtn";
+            this.analysisMenuBtn.Size = new System.Drawing.Size(55, 50);
+            this.analysisMenuBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.analysisMenuBtn.TabIndex = 7;
+            this.analysisMenuBtn.TabStop = false;
+            this.analysisMenuBtn.MouseEnter += new System.EventHandler(this.analysisMenuBtn_MouseEnter);
+            // 
             // sortingVisualizerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,6 +270,8 @@
             this.BackgroundImage = global::DSA_Visualizer.Properties.Resources.Home_BG;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1157, 770);
+            this.Controls.Add(this.analysisMenuBtn);
+            this.Controls.Add(this.analysisPanel);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.displayPanel);
@@ -257,6 +283,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.speedTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.analysisMenuBtn)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -277,5 +304,7 @@
         private System.Windows.Forms.Label cmprOutput;
         private System.Windows.Forms.Label swapsOutput;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel analysisPanel;
+        private System.Windows.Forms.PictureBox analysisMenuBtn;
     }
 }

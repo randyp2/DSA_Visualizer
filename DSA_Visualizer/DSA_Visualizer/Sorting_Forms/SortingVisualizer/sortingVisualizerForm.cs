@@ -22,8 +22,9 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         private const int DISPLAY_XPOS = 79;
         private const int DISPLAY_YPOS = 101;
 
-        private RectangleManger recMnger;
+        private RectangleManger recManager;
         private SortingAlgorithms algorithms;
+        private AnalysisManager analysisManager;
 
         private bool resetBtnPressed;
 
@@ -32,10 +33,14 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             InitializeComponent();
             SetDoubleBuffered(this); // Remove flickering of form
             SetDoubleBuffered(displayPanel); // Remove flickering of display panel
+            this.analysisPanel.Visible = false;
             this.displayPanel.BackColor = Color.FromArgb(225, 0, 0, 0); // Transparent background
 
-            recMnger = new RectangleManger(displayPanel);
-            recMnger.PanelCurrHeight = DISPLAY_HEIGHT;
+            this.recManager = new RectangleManger(displayPanel);
+            recManager.PanelCurrHeight = DISPLAY_HEIGHT;
+
+            this.analysisManager = new AnalysisManager(analysisPanel); 
+
             this.resetBtnPressed = false;
             
             this.resetBtn.Hide();
@@ -48,7 +53,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         // Redisplay the current amount of rectangles selected
         public void resetDisplayPanel()
         {
-            recMnger.resetRectangles();
+            recManager.resetRectangles();
             displayPanel.Invalidate();
 
             resetBtn.Hide(); // Hide reset btn
@@ -64,14 +69,14 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 
         public void resetDisplay() {
             if (displayPanel.Size.Height == DISPLAY_HEIGHT) return;
-            recMnger.PanelCurrHeight = DISPLAY_HEIGHT;
+            recManager.PanelCurrHeight = DISPLAY_HEIGHT;
 
             // Decrease size and recenter
             displayPanel.Size = new Size(displayPanel.Size.Width, displayPanel.Size.Height - RESIZE_HEIGHT);
             displayPanel.Location = new Point(displayPanel.Location.X, displayPanel.Location.Y + (RESIZE_HEIGHT / 2));
 
             // Repopulate & redraw rectangles
-            recMnger.populateRectangles();
+            recManager.populateRectangles();
             displayPanel.Invalidate();
 
         }
@@ -83,9 +88,9 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 
 
             int newSize = DISPLAY_HEIGHT + RESIZE_HEIGHT;
-            if (recMnger.PanelCurrHeight == newSize/2) return;
+            if (recManager.PanelCurrHeight == newSize/2) return;
 
-            recMnger.PanelCurrHeight = newSize/2;
+            recManager.PanelCurrHeight = newSize/2;
 
             // Increase size and recenter
             displayPanel.Size = new Size(displayPanel.Size.Width, newSize); 
@@ -93,7 +98,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 
            
             // Repopulate & redraw rectangles
-            recMnger.populateRectangles();
+            recManager.populateRectangles();
             displayPanel.Invalidate();
 
 
@@ -109,18 +114,18 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
          * @param 
          *  i) int: value from scroll bar
          */
-        public void initializeRecMnger(int value)
+        public void initializerecManager(int value)
         {
             switch (value)
             {
-                case 0: recMnger.NumRectangles = 10; break;
-                case 1: recMnger.NumRectangles = 100; break;
-                case 2: recMnger.NumRectangles = 250; break;
-                case 3: recMnger.NumRectangles = 500; break;
-                case 4: recMnger.NumRectangles = 1000; break;
+                case 0: recManager.NumRectangles = 10; break;
+                case 1: recManager.NumRectangles = 100; break;
+                case 2: recManager.NumRectangles = 250; break;
+                case 3: recManager.NumRectangles = 500; break;
+                case 4: recManager.NumRectangles = 1000; break;
             }
 
-            recMnger.populateRectangles();
+            recManager.populateRectangles();
         }
 
         /*
@@ -140,30 +145,30 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             {
                 // O(n^2) algorithms
                 case "Insertion Sort":
-                    algorithms = new InsertionSort(this.recMnger);
+                    algorithms = new InsertionSort(this.recManager);
                     initializeAlgorithmOutputs();
                     break;
 
                 case "Bubble Sort":
-                    algorithms = new BubbleSort(this.recMnger);
+                    algorithms = new BubbleSort(this.recManager);
                     initializeAlgorithmOutputs();
                     break;
 
                 case "Selection Sort":
-                    algorithms = new SelectionSort(this.recMnger);
+                    algorithms = new SelectionSort(this.recManager);
                     initializeAlgorithmOutputs();
                     break;
 
 
                 // O(nlogn) algorithms
                 case "Quick Sort":
-                    algorithms = new QuickSort(this.recMnger);
+                    algorithms = new QuickSort(this.recManager);
                     initializeAlgorithmOutputs();
                     break;
                 
 
                 case "Merge Sort":
-                    algorithms = new MergeSort(this.recMnger);
+                    algorithms = new MergeSort(this.recManager);
                     moveDisplay();
                     initializeAlgorithmOutputs();
                     break;
@@ -225,12 +230,12 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         /* ====================== FORM EVENTS ====================== */
         private void sortingVisualizerForm_Load(object sender, EventArgs e)
         {
-            initializeRecMnger(sizeBar.Value);
+            initializerecManager(sizeBar.Value);
             displayPanel.Invalidate();
         }
 
         // Paint event to trigger rectangle drawing
-        private void displayPanel_Paint(object sender, PaintEventArgs e) { recMnger.drawRectangles(e.Graphics);}
+        private void displayPanel_Paint(object sender, PaintEventArgs e) { recManager.drawRectangles(e.Graphics);}
         
         /*
          * @brief Sort Button On Click Event
@@ -241,7 +246,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         private void sortBtn_Click(object sender, EventArgs e)
         {
             // Validate inputs
-            if (recMnger.NumRectangles == 0) {
+            if (recManager.NumRectangles == 0) {
                 MessageBox.Show(
                     "Please choose input size first", // Message text
                     "Warning",  // Title
@@ -299,7 +304,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         // Update number of rectangles
         private void sizeBar_Scroll(object sender, EventArgs e)
         {
-            initializeRecMnger(sizeBar.Value);
+            initializerecManager(sizeBar.Value);
             sortBtn.Text = "Sort";
             displayPanel.Invalidate();
             resetLabelOutputs();
@@ -312,8 +317,20 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         }
 
 
+        /* ====================== ANALYSIS WINDOW ====================== */
+      
 
+        private void analysisMenuBtn_MouseEnter(object sender, EventArgs e)
+        {
+            this.analysisPanel.Visible = true;
+            this.analysisMenuBtn.Visible = false;
+        }
 
+        private void analysisPanel_MouseLeave(object sender, EventArgs e)
+        {
+            this.analysisPanel.Visible = false;
+            this.analysisMenuBtn.Visible = true;
+        }
 
         /* ==================================================================== */
         /* ------------ REMOVE WHITE FLICKERING OF PANEL ------------
@@ -346,7 +363,9 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             }
         }
 
-       
+        
+
+
 
         #endregion
 
