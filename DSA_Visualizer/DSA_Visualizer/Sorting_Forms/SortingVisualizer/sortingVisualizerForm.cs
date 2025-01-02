@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -232,6 +233,9 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         {
             initializerecManager(sizeBar.Value);
             displayPanel.Invalidate();
+
+            // Analysis panel
+            createRoundedPanel(analysisPanel, 20);
         }
 
         // Paint event to trigger rectangle drawing
@@ -328,8 +332,39 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 
         private void analysisPanel_MouseLeave(object sender, EventArgs e)
         {
-            this.analysisPanel.Visible = false;
-            this.analysisMenuBtn.Visible = true;
+            Point mousePos = this.PointToClient(Cursor.Position); // Get mouse position relative to whole form
+
+            if (!this.analysisPanel.Bounds.Contains(mousePos)) { // If the mouse's position is contained in the panel
+                this.analysisPanel.Visible = false;
+                this.analysisMenuBtn.Visible = true;
+            }
+            
+        }
+
+        private void createRoundedPanel(Panel panel, int cornerRad) {
+            Rectangle bounds = panel.ClientRectangle;
+            int diameter = 2 * cornerRad;
+
+            GraphicsPath path = new GraphicsPath();
+
+            // Top-left
+            path.AddArc(bounds.X, bounds.Y, diameter, diameter, 180, 90);
+
+            // Top-right corner
+            path.AddArc(bounds.Right - diameter, bounds.Y, diameter, diameter, 270, 90);
+
+            // Bottom-right corner
+            path.AddArc(bounds.Right - diameter, bounds.Bottom - diameter, diameter, diameter, 0, 90);
+
+            // Bottom-left corner
+            path.AddArc(bounds.X, bounds.Bottom - diameter, diameter, diameter, 90, 90);
+
+            path.CloseFigure();
+
+            panel.Region = new Region(path);
+
+
+
         }
 
         /* ==================================================================== */
