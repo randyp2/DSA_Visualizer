@@ -146,17 +146,22 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             {
                 // O(n^2) algorithms
                 case "Insertion Sort":
-                    algorithms = new InsertionSort(this.recManager);
+                    algorithms = new InsertionSort(this.recManager);        
+                    analysisManager.InitializeInformation("Insertion Sort");
                     initializeAlgorithmOutputs();
                     break;
 
                 case "Bubble Sort":
                     algorithms = new BubbleSort(this.recManager);
+                    analysisManager.InitializeInformation("Bubble Sort");
+                    
                     initializeAlgorithmOutputs();
                     break;
 
                 case "Selection Sort":
                     algorithms = new SelectionSort(this.recManager);
+                    analysisManager.InitializeInformation("Selection Sort");
+                  
                     initializeAlgorithmOutputs();
                     break;
 
@@ -164,12 +169,16 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
                 // O(nlogn) algorithms
                 case "Quick Sort":
                     algorithms = new QuickSort(this.recManager);
+                    analysisManager.InitializeInformation("Quick Sort");
+                    
                     initializeAlgorithmOutputs();
                     break;
                 
 
                 case "Merge Sort":
                     algorithms = new MergeSort(this.recManager);
+                    analysisManager.InitializeInformation("Merge Sort");
+                    
                     moveDisplay();
                     initializeAlgorithmOutputs();
                     break;
@@ -231,6 +240,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         /* ====================== FORM EVENTS ====================== */
         private void sortingVisualizerForm_Load(object sender, EventArgs e)
         {
+          
             initializerecManager(sizeBar.Value);
             displayPanel.Invalidate();
 
@@ -341,6 +351,9 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             
         }
 
+        /*
+         *  Create rounded edges on square panel
+         */
         private void createRoundedPanel(Panel panel, int cornerRad) {
             Rectangle bounds = panel.ClientRectangle;
             int diameter = 2 * cornerRad;
@@ -398,7 +411,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             }
         }
 
-        
+       
 
 
 

@@ -43,10 +43,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.resetBtn = new System.Windows.Forms.Button();
             this.analysisPanel = new System.Windows.Forms.Panel();
+            this.descriptionOutputTxtBox = new System.Windows.Forms.RichTextBox();
+            this.spaceOutputTxtBox = new System.Windows.Forms.RichTextBox();
+            this.runtimeOutputTxtBox = new System.Windows.Forms.RichTextBox();
+            this.sortingTitleLbl = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.analysisMenuBtn = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.sizeBar)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.speedTrackBar)).BeginInit();
+            this.analysisPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.analysisMenuBtn)).BeginInit();
             this.SuspendLayout();
             // 
@@ -244,11 +251,84 @@
             // analysisPanel
             // 
             this.analysisPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.analysisPanel.Controls.Add(this.descriptionOutputTxtBox);
+            this.analysisPanel.Controls.Add(this.spaceOutputTxtBox);
+            this.analysisPanel.Controls.Add(this.runtimeOutputTxtBox);
+            this.analysisPanel.Controls.Add(this.sortingTitleLbl);
+            this.analysisPanel.Controls.Add(this.label7);
+            this.analysisPanel.Controls.Add(this.label6);
             this.analysisPanel.Location = new System.Drawing.Point(454, 33);
             this.analysisPanel.Name = "analysisPanel";
             this.analysisPanel.Size = new System.Drawing.Size(703, 586);
             this.analysisPanel.TabIndex = 6;
             this.analysisPanel.MouseLeave += new System.EventHandler(this.analysisPanel_MouseLeave);
+            // 
+            // descriptionOutputTxtBox
+            // 
+            this.descriptionOutputTxtBox.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.descriptionOutputTxtBox.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.descriptionOutputTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.descriptionOutputTxtBox.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descriptionOutputTxtBox.Location = new System.Drawing.Point(31, 403);
+            this.descriptionOutputTxtBox.Name = "descriptionOutputTxtBox";
+            this.descriptionOutputTxtBox.Size = new System.Drawing.Size(647, 169);
+            this.descriptionOutputTxtBox.TabIndex = 8;
+            this.descriptionOutputTxtBox.Text = "";
+            // 
+            // spaceOutputTxtBox
+            // 
+            this.spaceOutputTxtBox.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.spaceOutputTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.spaceOutputTxtBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spaceOutputTxtBox.ForeColor = System.Drawing.Color.Blue;
+            this.spaceOutputTxtBox.Location = new System.Drawing.Point(542, 195);
+            this.spaceOutputTxtBox.Name = "spaceOutputTxtBox";
+            this.spaceOutputTxtBox.Size = new System.Drawing.Size(100, 36);
+            this.spaceOutputTxtBox.TabIndex = 7;
+            this.spaceOutputTxtBox.Text = "";
+            // 
+            // runtimeOutputTxtBox
+            // 
+            this.runtimeOutputTxtBox.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.runtimeOutputTxtBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.runtimeOutputTxtBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.runtimeOutputTxtBox.ForeColor = System.Drawing.Color.Blue;
+            this.runtimeOutputTxtBox.Location = new System.Drawing.Point(558, 92);
+            this.runtimeOutputTxtBox.Name = "runtimeOutputTxtBox";
+            this.runtimeOutputTxtBox.Size = new System.Drawing.Size(100, 36);
+            this.runtimeOutputTxtBox.TabIndex = 6;
+            this.runtimeOutputTxtBox.Text = "";
+            // 
+            // sortingTitleLbl
+            // 
+            this.sortingTitleLbl.AutoSize = true;
+            this.sortingTitleLbl.Font = new System.Drawing.Font("Microsoft YaHei UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sortingTitleLbl.Location = new System.Drawing.Point(308, 340);
+            this.sortingTitleLbl.Name = "sortingTitleLbl";
+            this.sortingTitleLbl.Size = new System.Drawing.Size(0, 28);
+            this.sortingTitleLbl.TabIndex = 4;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(347, 197);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(189, 26);
+            this.label7.TabIndex = 1;
+            this.label7.Tag = "Runtime: ";
+            this.label7.Text = "Space Complexity:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(347, 94);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(220, 26);
+            this.label6.TabIndex = 0;
+            this.label6.Tag = "Runtime: ";
+            this.label6.Text = "Runtime Complexity: ";
             // 
             // analysisMenuBtn
             // 
@@ -283,6 +363,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.speedTrackBar)).EndInit();
+            this.analysisPanel.ResumeLayout(false);
+            this.analysisPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.analysisMenuBtn)).EndInit();
             this.ResumeLayout(false);
 
@@ -306,5 +388,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel analysisPanel;
         private System.Windows.Forms.PictureBox analysisMenuBtn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label sortingTitleLbl;
+        private System.Windows.Forms.RichTextBox runtimeOutputTxtBox;
+        private System.Windows.Forms.RichTextBox spaceOutputTxtBox;
+        private System.Windows.Forms.RichTextBox descriptionOutputTxtBox;
     }
 }

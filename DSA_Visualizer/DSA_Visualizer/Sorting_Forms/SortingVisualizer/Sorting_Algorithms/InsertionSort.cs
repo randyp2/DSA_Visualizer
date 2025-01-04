@@ -15,7 +15,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
         public override async Task sort() {
 
             await insertionSort(recManager.Rectangles, recManager.NumRectangles);
-            highlightAllGreen();
+            await highlightAllGreen();
         }
 
         public async Task insertionSort(List<ColoredRectangle> list, int n) {
