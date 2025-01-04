@@ -19,7 +19,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
         protected CancellationTokenSource cancellationTokenSource; // Determiens if task should be cancelled
         private Label compareOutput;
         private Label swapOutput;
-
+        
         // Track compares and swaps
         private int totalComparisons;
         private int totalSwaps;
@@ -74,6 +74,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
             get { return this.isPaused; }
             set { this.isPaused = value; }
         }
+
 
         public void setAnimationSpeed(int val) { this.animationSpeed = val; }
         public void setOffsetX(float val) { this.offsetX = val; }

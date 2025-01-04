@@ -43,7 +43,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
                     Console.WriteLine("Animation speed: " + animationSpeed);
                     await Task.Delay(animationSpeed);
 
-
+                    updateCompare();
                     if (list[minIdx] > list[j])
                     {
                         recManager.deselectRec(minIdx); // Deslect old min
@@ -64,6 +64,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
 
                 if (minIdx != i) {
                     await swap(i, minIdx);
+                    updateSwap();
                     if (recManager.NumRectangles < 250 || animationSpeed != 2) await Task.Delay(animationSpeed);
                 }
 

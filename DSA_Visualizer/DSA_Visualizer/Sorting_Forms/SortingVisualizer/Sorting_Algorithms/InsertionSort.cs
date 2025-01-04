@@ -15,7 +15,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
         public override async Task sort() {
 
             await insertionSort(recManager.Rectangles, recManager.NumRectangles);
-            highlightAllGreen();
+            await highlightAllGreen();
         }
 
         public async Task insertionSort(List<ColoredRectangle> list, int n) {
@@ -28,6 +28,8 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
 
                 while (j >= 0 && list[j] > key)
                 {
+                    updateCompare();
+
                     cancellationTokenSource.Token.ThrowIfCancellationRequested(); // Cancel function 
                     Console.WriteLine("Running inside while loop");
 
@@ -36,6 +38,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer.Sorting_Algorithms
 
                     // Swap list[j] with list[j+1]
                     await swap(j, j + 1);
+                    updateSwap();
                     recManager.deselectRec(j+1);
 
                     j--;
