@@ -103,6 +103,16 @@ namespace DSA_Visualizer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap menu_slider {
+            get {
+                object obj = ResourceManager.GetObject("menu_slider", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap navBtn_img {
             get {
                 object obj = ResourceManager.GetObject("navBtn_img", resourceCulture);
