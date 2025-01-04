@@ -50,6 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basics_Forms\LinkedList\linkedListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Basics_Forms\LinkedList\linkedListForm.Designer.cs">
+      <DependentUpon>linkedListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Basics_Forms\Queue_Array\queueArrayForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Basics_Forms\Queue_Array\queueArrayForm.Designer.cs">
+      <DependentUpon>queueArrayForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="HomePageForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,9 +134,7 @@
   <ItemGroup>
     <None Include="Resources\list_icon.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Basics_Forms\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\menu_slider.png" />
   </ItemGroup>
