@@ -252,6 +252,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         }
 
         // Paint event to trigger rectangle drawing
+        
         private void displayPanel_Paint(object sender, PaintEventArgs e) { recManager.drawRectangles(e.Graphics);}
         
         /*
