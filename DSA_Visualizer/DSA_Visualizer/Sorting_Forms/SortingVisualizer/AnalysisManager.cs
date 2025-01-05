@@ -20,6 +20,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         private const double X_MIN = 1;
         private const double X_MAX = 1000;
 
+        // Local variables
         private ChartArea mainChartArea;
 
         private Panel panel;
@@ -42,6 +43,7 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 
         }
 
+        // Set the title of algorithm 
         public void setSortingTitle(string sortType) {
            
 
@@ -51,10 +53,9 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 
             titleLbl.Location = new Point(this.panel.Width / 2 - (titleLbl.Width / 2), 2 * OFFSET + CHART_HEIGHT);
 
-
-
         }
 
+        // Set rtf string description of algorithm
         public void setSortingDescription(string sortType)
         {
             Control descriptionLbl = panel.Controls.Find("descriptionOutputTxtBox", true).FirstOrDefault();
@@ -161,6 +162,17 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             descriptionLbl.Location = new Point(this.panel.Width / 2 - (descriptionLbl.Width / 2), 4 * OFFSET + CHART_HEIGHT);
         }
 
+        /*
+         * @brief Set runtime for algorithm
+         * 
+         * @details 
+         *  - Set big o notation runtime
+         *  - Highlilght the corresponding series based on runtime
+         *  
+         *  @params
+         *      1) String : runtime of algorithm
+         * 
+         */
         public void setRuntime(string runtime) {
             
             Control runtimeTxtBox = panel.Controls.Find("runtimeOutputTxtBox", true).FirstOrDefault();
@@ -195,15 +207,16 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             
         }
 
+        // Intialize space complextiy 
         public void setSpace(string space) {
 
             Control spaceTxtBox = panel.Controls.Find("spaceOutputTxtBox", true).FirstOrDefault();
 
             spaceTxtBox.Text = "O(" + space + ")";
 
-            
         }
-
+        
+        // Intialize information for runtime and space complexity
         public void InitializeInformation(string title) {
            
             setSortingTitle(title);
@@ -211,12 +224,17 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             
         }
 
+        /*
+         * @brief Create a new chart
+         * 
+         * @details 
+         *  - Call chart area
+         *  - Call series
+         *  - Add it to panel
+         * 
+         */
         private void InitializeChart() {
             
-
-            Console.WriteLine("Panel width: " + this.panel.Width);
-            Console.WriteLine("Panel height: " + this.panel.Height);
-
             Chart chart = new Chart
             {   
                 Size = new Size(CHART_WIDTH, CHART_HEIGHT),
@@ -232,6 +250,18 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
 
         }
 
+        /*
+         * @brief Customize chartarea
+         * 
+         * @details 
+         *  - Create new chart area for chart
+         *  - Turn off grid layout
+         *  - Change axis colors & width
+         * 
+         * @params 
+         *  1) Chart - chart to plot on
+         *  
+         */
         private void customizeChartArea(Chart chart) {
             mainChartArea = new ChartArea("MainArea");
 
@@ -267,6 +297,17 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
             chart.ChartAreas.Add(mainChartArea);
         }
 
+        /*
+         * @brief Design series
+         * 
+         * @details 
+         *  - Add different functions/series to chart
+         *  - Set up x and y intervals
+         * 
+         * @params 
+         *  1) Chart - chart to plot on
+         *  
+         */
         private void customizeSeries(Chart chart) {
 
 
@@ -291,9 +332,13 @@ namespace DSA_Visualizer.Sorting_Forms.SortingVisualizer
         }
 
         /*
-         * @brief ...
+         * @brief Adds series to a chart
          * 
-         * @details Run ...
+         * @details 
+         *  - Create a new series/line
+         *  - Calculate x and y values
+         *  - Plot points
+         *  - Add series to chart
          * 
          * @params 
          *  1) Chart - chart to plot on
