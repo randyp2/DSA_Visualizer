@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "D:\\DSAVisualizerMaster\\DSA_Visualizer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|D:\\DSAVisualizerMaster\\DSA_Visualizer\\dsa_visualizer\\basics_forms\\queue_array\\queuearrayform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|d:\\dsavisualizermaster\\dsa_visualizer\\dsa_visualizer\\basics_forms\\queue_array\\queuearrayform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\basics_forms\\queue_array\\queuearrayform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|d:\\dsavisualizermaster\\dsa_visualizer\\dsa_visualizer\\basics_forms\\queue_array\\queuearrayform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|D:\\DSAVisualizerMaster\\DSA_Visualizer\\dsa_visualizer\\basics_forms\\queue_array\\queuearrayform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{E789ADD6-0F83-4BF1-8866-4E0D66B2953D}|DSA_Visualizer\\DSA_Visualizer.csproj|solutionrelative:dsa_visualizer\\basics_forms\\queue_array\\queuearrayform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -42,8 +42,8 @@
               "Title": "queueArrayForm.cs [Design]",
               "DocumentMoniker": "D:\\DSAVisualizerMaster\\DSA_Visualizer\\DSA_Visualizer\\Basics_Forms\\Queue_Array\\queueArrayForm.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Basics_Forms\\Queue_Array\\queueArrayForm.cs",
-              "ToolTip": "D:\\DSAVisualizerMaster\\DSA_Visualizer\\DSA_Visualizer\\Basics_Forms\\Queue_Array\\queueArrayForm.cs [Design]*",
-              "RelativeToolTip": "DSA_Visualizer\\Basics_Forms\\Queue_Array\\queueArrayForm.cs [Design]*",
+              "ToolTip": "D:\\DSAVisualizerMaster\\DSA_Visualizer\\DSA_Visualizer\\Basics_Forms\\Queue_Array\\queueArrayForm.cs [Design]",
+              "RelativeToolTip": "DSA_Visualizer\\Basics_Forms\\Queue_Array\\queueArrayForm.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-07T03:21:09.487Z",
               "IsPinned": true,
@@ -55,9 +55,9 @@
               "Title": "queueArrayForm.cs",
               "DocumentMoniker": "D:\\DSAVisualizerMaster\\DSA_Visualizer\\DSA_Visualizer\\Basics_Forms\\Queue_Array\\queueArrayForm.cs",
               "RelativeDocumentMoniker": "DSA_Visualizer\\Basics_Forms\\Queue_Array\\queueArrayForm.cs",
-              "ToolTip": "D:\\DSAVisualizerMaster\\DSA_Visualizer\\DSA_Visualizer\\Basics_Forms\\Queue_Array\\queueArrayForm.cs*",
-              "RelativeToolTip": "DSA_Visualizer\\Basics_Forms\\Queue_Array\\queueArrayForm.cs*",
-              "ViewState": "AgIAABkAAAAAAAAAAAAQwBkAAABHAAAAAAAAAA==",
+              "ToolTip": "D:\\DSAVisualizerMaster\\DSA_Visualizer\\DSA_Visualizer\\Basics_Forms\\Queue_Array\\queueArrayForm.cs",
+              "RelativeToolTip": "DSA_Visualizer\\Basics_Forms\\Queue_Array\\queueArrayForm.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAAKsBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-04T23:57:53.112Z",
               "IsPinned": true,

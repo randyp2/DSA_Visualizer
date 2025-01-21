@@ -144,9 +144,9 @@
             this.SlimePictureBox0.BackColor = System.Drawing.Color.Transparent;
             this.SlimePictureBox0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SlimePictureBox0.Cursor = System.Windows.Forms.Cursors.Default;
-            this.SlimePictureBox0.Location = new System.Drawing.Point(272, 325);
+            this.SlimePictureBox0.Location = new System.Drawing.Point(266, 325);
             this.SlimePictureBox0.Name = "SlimePictureBox0";
-            this.SlimePictureBox0.Size = new System.Drawing.Size(128, 64);
+            this.SlimePictureBox0.Size = new System.Drawing.Size(64, 64);
             this.SlimePictureBox0.TabIndex = 6;
             this.SlimePictureBox0.TabStop = false;
             this.SlimePictureBox0.Paint += new System.Windows.Forms.PaintEventHandler(this.SlimePictureBox0_Paint);
