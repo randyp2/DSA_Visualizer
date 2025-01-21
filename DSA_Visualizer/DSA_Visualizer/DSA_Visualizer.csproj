@@ -87,6 +87,9 @@
     <Compile Include="Sorting_Forms\SortingVisualizer\Sorting_Algorithms\SelectionSort.cs" />
     <Compile Include="Sorting_Forms\SortingVisualizer\Sorting_Algorithms\SortingAlgorithms.cs" />
     <Compile Include="Sorting_Forms\SortingVisualizer\Sorting_Algorithms\Testing.cs" />
+    <EmbeddedResource Include="Basics_Forms\Queue_Array\queueArrayForm.resx">
+      <DependentUpon>queueArrayForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HomePageForm.resx">
       <DependentUpon>HomePageForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,7 +137,9 @@
   <ItemGroup>
     <None Include="Resources\list_icon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\queueArray_resources\" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\menu_slider.png" />
   </ItemGroup>

@@ -31,3 +31,15 @@ C:\Users\rpaha\OneDrive\Desktop\GitHub\DSA Project\DSA_Visualizer\DSA_Visualizer
 C:\Users\rpaha\OneDrive\Desktop\GitHub\DSA Project\DSA_Visualizer\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.exe
 C:\Users\rpaha\OneDrive\Desktop\GitHub\DSA Project\DSA_Visualizer\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.pdb
 C:\Users\rpaha\OneDrive\Desktop\GitHub\DSA Project\DSA_Visualizer\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.Sorting_Forms.SortingVisualizer.sortingVisualizerForm.resources
+D:\DSAVisualizerMaster\DSA_Visualizer\DSA_Visualizer\bin\Debug\DSA_Visualizer.exe.config
+D:\DSAVisualizerMaster\DSA_Visualizer\DSA_Visualizer\bin\Debug\DSA_Visualizer.exe
+D:\DSAVisualizerMaster\DSA_Visualizer\DSA_Visualizer\bin\Debug\DSA_Visualizer.pdb
+D:\DSAVisualizerMaster\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.csproj.AssemblyReference.cache
+D:\DSAVisualizerMaster\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.homePage.resources
+D:\DSAVisualizerMaster\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.Properties.Resources.resources
+D:\DSAVisualizerMaster\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.Sorting_Forms.SortingVisualizer.sortingVisualizerForm.resources
+D:\DSAVisualizerMaster\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.csproj.GenerateResource.cache
+D:\DSAVisualizerMaster\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.csproj.CoreCompileInputs.cache
+D:\DSAVisualizerMaster\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.exe
+D:\DSAVisualizerMaster\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.pdb
+D:\DSAVisualizerMaster\DSA_Visualizer\DSA_Visualizer\obj\Debug\DSA_Visualizer.Basics_Forms.Queue_Array.queueArrayForm.resources

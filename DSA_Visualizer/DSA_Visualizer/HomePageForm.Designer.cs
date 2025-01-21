@@ -229,6 +229,7 @@
             this.queueArrBtn.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.queueArrBtn.Size = new System.Drawing.Size(210, 40);
             this.queueArrBtn.TabIndex = 5;
+            this.queueArrBtn.Tag = "DSA_Visualizer.Basics_Forms.Queue_Array.QueueArrayForm";
             this.queueArrBtn.Text = "       Queue (Array)";
             this.queueArrBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.queueArrBtn.UseVisualStyleBackColor = true;
