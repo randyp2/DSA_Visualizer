@@ -3,7 +3,6 @@
 
 A visualizer for data structures and algorithms to help conceptualize topics. Implemented through C# and WinForms user interface.
 
-### Current Group Members:
+### Member:
 * Randy
-* Ethan
-* Thomas
+  
