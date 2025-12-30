@@ -1,5 +1,10 @@
 # DSA Visualizer
 
+<p align="center">
+   <img src="assets/linkedlist_prev.gif" width="800" alt="Sorting Visualizer Demo"/> 
+   <img src="assets/sorting-prev.gif" width="800" alt="Sorting Visualizer Demo"/> 
+</p>
+
 WinForms (.NET Framework 4.7.2) desktop app for visualizing data structures and algorithms. The current build focuses on animated sorting visualizations with runtime/space insights.
 
 ## Features
@@ -8,6 +13,7 @@ WinForms (.NET Framework 4.7.2) desktop app for visualizing data structures and 
 - Algorithms implemented: Bubble Sort, Insertion Sort, Selection Sort, Quick Sort, Merge Sort (Bogo Sort and comparison view are placeholders).
 - Live counters for comparisons and swaps, plus pause/resume and reset to replay the animation.
 - Analysis side panel: Big‑O chart overlay, runtime/space complexity outputs, and algorithm descriptions.
+- Basic linked list visualizer
 
 ## Project Structure
 - `DSA_Visualizer/Program.cs` — application entry point.
